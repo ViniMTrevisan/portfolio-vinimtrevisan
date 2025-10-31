@@ -29,7 +29,7 @@ export default function Contact() {
       </p>
 
       <form 
-        action="https://formspree.io/f/xeokvoqo" 
+        action={process.env.NEXT_PUBLIC_FORMSPREE_ID}
         method="POST"
         className="space-y-6"
         onSubmit={(e) => {
