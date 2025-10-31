@@ -1,0 +1,80 @@
+{
+  "Navbar": {
+    "about": "Sobre",
+    "experience": "Experiência",
+    "technologies": "Tecnologias",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "Hero": {
+    "title": "Engenheiro de Back-End & DevOps",
+    "subtitle": "Java • Spring • Python • AWS • Docker",
+    "button_cv": "Baixar CV (Inglês)",
+    "button_linkedin": "LinkedIn",
+    "button_github": "GitHub"
+  },
+  "About": {
+    "title": "Minha Trajetória",
+    "card1_title": "Filosofia e Foco",
+    "card1_li1": "Estudante de Engenharia de Software na PUCPR.",
+    "card1_li2": "Impulsionado pelo lema \"Aprenda uma coisa nova a cada dia!\", com paixão por criar soluções de software escaláveis e inovadoras.",
+    "card1_li3": "Iniciei a minha jornada na programação em 2022 com JavaScript, aprofundando os estudos em Python em 2023.",
+    "card1_li4": "Atualmente focado no estudo e desenvolvimento de projetos inovadores e escaláveis, com Java (Spring Boot), React, NextJS, Docker, Terraform e AWS.",
+    "card2_title": "Resiliência e Adaptação",
+    "card2_li1": "Minha mentalidade foi forjada no futebol, encarando o esporte (e a programação) com dedicação, resiliência e trabalho em equipe.",
+    "card2_li2": "Aprendi a encarar frustrações e a nunca desistir, uma habilidade aplicada diariamente ao depurar códigos.",
+    "card2_li3": "Alem disso, minha resiliência e adaptabilidade foram testadas em um intercâmbio em Utah, EUA, superando desafios de adaptação e conquistando um campeonato regional no time de futebol.",
+    "card2_li4": "Consolidei a fluência em inglês durante a experiência internacional.",
+    "card3_title": "Objetivos",
+    "card3_li1": "Experiência prática desde o primeiro grande projeto (um portal para ONGs em PHP/MySQL) até as responsabilidades atuais na Vivo: criar soluções escaláveis para resolver problemas diários.",
+    "card3_li2": "No curto prazo, quero me desafiar com o desenvolvimento de novos projetos e automações para aprender mais e melhorar como profissional na área de Engenharia de Software.",
+    "card3_li3": "No longo prazo, o objetivo é crescer como desenvolvedor, garantindo que minhas habilidades estão sendo aplicadas para inovar, cuidar, e ajudar as pessoas do mundo inteiro.",
+    "card3_li4": "Entregar inovação, dedicação e cuidado em todas as soluções criadas."
+  },
+  "Experience": {
+    "title": "Experiência Profissional",
+    "job_title": "Estagiário de Engenharia de Software",
+    "date": "Presente",
+    "company": "Vivo (Telefônica Brasil)",
+    "li1": "Desenvolvimento e manutenção de aplicações de produção em <strong>Python</strong>, <strong>Flask</strong> e <strong>MySQL</strong>.",
+    "li2": "Automação de processos de negócio complexos, resultando em otimização de eficiência para a equipe.",
+    "li3": "Refatoração de sistemas legados para arquiteturas mais modernas e escaláveis.",
+    "li4": "Análise e modelagem de dados para extração de relatórios e métricas de performance."
+  },
+  "Technologies": {
+    "title": "Minha Stack de Tecnologias",
+    "cat1_title": "Back-end",
+    "cat2_title": "Front-end",
+    "cat3_title": "DevOps, Ferramentas & Outros"
+  },
+  "Projects": {
+    "title": "Projetos",
+    "p1_title": "API de E-commerce (Spring Boot & DevOps)",
+    "p1_desc": "API RESTful completa com microsserviços, Spring Security e deploy na AWS com Docker.",
+    "p2_title": "App de Finanças Pessoais (Fullstack)",
+    "p2_desc": "Aplicação fullstack com back-end em Spring Boot e front-end em React para gestão financeira.",
+    "p3_title": "Agendamento de Casa de Praia (Fullstack)",
+    "p3_desc": "App fullstack (Node.js/React) para agendamento, com CRUD completo, autenticação JWT e banco PostgreSQL.",
+    "p4_title": "API Python + Ollama",
+    "p4_desc": "API em Python (FastAPI) que se comunica com o modelo de linguagem local Ollama.",
+    "p5_title": "MyTube Video Processor (Java SOLID)",
+    "p5_desc": "App em Java que demonstra Injeção de Dependência e SOLID para processar vídeos. Foco em arquitetura.",
+    "p6_title": "Kindact (Sistema Web)",
+    "p6_desc": "Sistema web em PHP e MySQL para ONGs/voluntários com autenticação de múltiplos perfis.",
+    "github_button": "Ver no GitHub"
+  },
+  "Contact": {
+    "title": "Contato",
+    "subtitle": "Tem um projeto em mente ou uma oportunidade? Me envie uma mensagem.",
+    "label_name": "Seu nome",
+    "placeholder_name": "Vinicius Trevisan",
+    "label_email": "Seu email",
+    "placeholder_email": "exemplo@gmail.com",
+    "label_message": "Sua mensagem",
+    "placeholder_message": "Olá, Vinicius! Tenho um projeto...",
+    "button_submit": "Enviar Mensagem"
+  },
+  "Footer": {
+    "copyright": "© {year} Vinicius Meier Trevisan."
+  }
+}

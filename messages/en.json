@@ -1,0 +1,80 @@
+{
+  "Navbar": {
+    "about": "About",
+    "experience": "Experience",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Back-End & DevOps Engineer",
+    "subtitle": "Java • Spring • Python • AWS • Docker",
+    "button_cv": "Download CV (English)",
+    "button_linkedin": "LinkedIn",
+    "button_github": "GitHub"
+  },
+  "About": {
+    "title": "My Journey",
+    "card1_title": "Philosophy and Focus",
+    "card1_li1": "Software Engineering student at PUCPR.",
+    "card1_li2": "Driven by the motto \"Learn something new every day!\", with a passion for creating scalable and innovative software solutions.",
+    "card1_li3": "Started my programming journey in 2022 with JavaScript, deepening my studies in Python in 2023.",
+    "card1_li4": "Currently focused on studying and developing innovative, scalable projects with Java (Spring Boot), React, NextJS, Docker, Terraform, and AWS.",
+    "card2_title": "Resilience and Adaptation",
+    "card2_li1": "My mindset was forged in soccer, treating the sport (and programming) with dedication, resilience, and teamwork.",
+    "card2_li2": "I learned to face frustrations and never give up, a skill I apply daily when debugging code.",
+    "card2_li3": "Furthermore, my resilience and adaptability were tested during an exchange program in Utah, USA, overcoming adaptation challenges and winning a regional soccer championship.",
+    "card2_li4": "I consolidated my English fluency during this international experience.",
+    "card3_title": "Objectives",
+    "card3_li1": "Practical experience from my first major project (a portal for NGOs in PHP/MySQL) to my current responsibilities at Vivo: creating scalable solutions for daily problems.",
+    "card3_li2": "In the short term, I want to challenge myself by developing new projects and automations to learn more and improve as a Software Engineering professional.",
+    "card3_li3": "In the long term, the goal is to grow as a developer, ensuring my skills are applied to innovate, care for, and help people worldwide.",
+    "card3_li4": "Deliver innovation, dedication, and care in all solutions created."
+  },
+  "Experience": {
+    "title": "Work Experience",
+    "job_title": "Software Engineer Intern",
+    "date": "Present",
+    "company": "Vivo (Telefônica Brasil)",
+    "li1": "Development and maintenance of production applications using <strong>Python</strong>, <strong>Flask</strong>, and <strong>MySQL</strong>.",
+    "li2": "Automation of complex business processes, resulting in team efficiency optimization.",
+    "li3": "Refactoring legacy systems to more modern and scalable architectures.",
+    "li4": "Data analysis and modeling for extracting reports and performance metrics."
+  },
+  "Technologies": {
+    "title": "My Tech Stack",
+    "cat1_title": "Back-end",
+    "cat2_title": "Front-end",
+    "cat3_title": "DevOps, Tools & Others"
+  },
+  "Projects": {
+    "title": "Projects",
+    "p1_title": "E-commerce API (Spring Boot & DevOps)",
+    "p1_desc": "Complete RESTful API with microservices, Spring Security, and AWS deploy with Docker.",
+    "p2_title": "Personal Finance App (Fullstack)",
+    "p2_desc": "Fullstack application with Spring Boot back-end and React front-end for financial management.",
+    "p3_title": "Beach House Scheduler (Fullstack)",
+    "p3_desc": "Fullstack app (Node.js/React) for scheduling, with full CRUD, JWT authentication, and PostgreSQL DB.",
+    "p4_title": "Python API + Ollama",
+    "p4_desc": "API in Python (FastAPI) that communicates with the local language model Ollama.",
+    "p5_title": "MyTube Video Processor (Java SOLID)",
+    "p5_desc": "Java App demonstrating Dependency Injection and SOLID to process videos. Focus on architecture.",
+    "p6_title": "Kindact (Web System)",
+    "p6_desc": "Web system in PHP and MySQL for NGOs/volunteers with multi-profile authentication.",
+    "github_button": "View on GitHub"
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Have a project in mind or an opportunity? Send me a message.",
+    "label_name": "Your name",
+    "placeholder_name": "Vinicius Trevisan",
+    "label_email": "Your email",
+    "placeholder_email": "example@gmail.com",
+    "label_message": "Your message",
+    "placeholder_message": "Hello, Vinicius! I have a project...",
+    "button_submit": "Send Message"
+  },
+  "Footer": {
+    "copyright": "© {year} Vinicius Meier Trevisan."
+  }
+}
