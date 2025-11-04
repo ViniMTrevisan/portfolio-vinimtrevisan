@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLink } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useTranslations } from 'next-intl';
 
@@ -12,21 +12,21 @@ const projectsData = [
         titleKey: 'p1_title',
         descKey: 'p1_desc',
         technologies: ['Java', 'Spring Boot', 'AWS', 'Docker', 'PostgreSQL', 'JWT'],
-        githubUrl: 'https://github.com/ViniMTrevisan/ecommerce-api-spring',
+        githubUrl: 'https://github.com/ViniMTrevisan/spring-e-commerce',
     },
     {
         id: 'finance-app',
         titleKey: 'p2_title',
         descKey: 'p2_desc',
         technologies: ['Java', 'Spring Boot', 'React', 'MySQL', 'Fullstack', 'JWT'],
-        githubUrl: 'https://github.com/ViniMTrevisan/finance-app-fullstack',
+        githubUrl: 'https://github.com/ViniMTrevisan/app-financas',
     },
     {
         id: 'agendamento-praia',
         titleKey: 'p3_title',
         descKey: 'p3_desc',
         technologies: ['Node.js', 'Express', 'React', 'PostgreSQL', 'SOLID', 'JWT'],
-        githubUrl: 'https://github.com/ViniMTrevisan/agendamento-praia-app',
+        githubUrl: 'https://github.com/ViniMTrevisan/casa-praia-agendamento',
     },
     {
         id: 'ollama-api',
