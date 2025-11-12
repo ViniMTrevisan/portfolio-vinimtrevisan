@@ -26,7 +26,7 @@ const projectsData = [
         titleKey: 'p3_title',
         descKey: 'p3_desc',
         technologies: ['Node.js', 'Express', 'React', 'PostgreSQL', 'SOLID', 'JWT'],
-        githubUrl: 'https://github.com/ViniMTrevisan/casa-praia-agendamento',
+        githubUrl: 'https://github.com/ViniMTrevisan/agendamento-casa-praia',
     },
     {
         id: 'ollama-api',
