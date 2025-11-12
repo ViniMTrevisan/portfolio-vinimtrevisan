@@ -18,14 +18,14 @@ const projectsData = [
         id: 'finance-app',
         titleKey: 'p2_title',
         descKey: 'p2_desc',
-        technologies: ['Java', 'Spring Boot', 'React', 'MySQL', 'Fullstack', 'JWT'],
+        technologies: ['Java', 'Spring Boot', 'Nextjs', 'React', 'MySQL', 'Fullstack', 'JWT'],
         githubUrl: 'https://github.com/ViniMTrevisan/app-financas',
     },
     {
         id: 'agendamento-praia',
         titleKey: 'p3_title',
         descKey: 'p3_desc',
-        technologies: ['Node.js', 'Express', 'React', 'PostgreSQL', 'SOLID', 'JWT'],
+        technologies: ['Typescript', 'Next.js', 'React', 'PostgreSQL', 'SOLID', 'JWT', 'Supabase'],
         githubUrl: 'https://github.com/ViniMTrevisan/agendamento-casa-praia',
     },
     {
