@@ -55,12 +55,12 @@
     "p2_desc": "Fullstack application with Spring Boot back-end and React front-end for financial management.",
     "p3_title": "Beach House Scheduler (Fullstack)",
     "p3_desc": "Fullstack app (Node.js/React) for scheduling, with full CRUD, JWT authentication, and PostgreSQL DB.",
-    "p4_title": "Python API + Ollama",
-    "p4_desc": "API in Python (FastAPI) that communicates with the local language model Ollama.",
-    "p5_title": "MyTube Video Processor (Java SOLID)",
-    "p5_desc": "Java App demonstrating Dependency Injection and SOLID to process videos. Focus on architecture.",
-    "p6_title": "Kindact (Web System)",
-    "p6_desc": "Web system in PHP and MySQL for NGOs/volunteers with multi-profile authentication.",
+    "p4_title": "Nex Solutions",
+    "p4_desc": "Web development Startup, focused on providing modern, scalable, and innovative solutions for companies with available prices and a great user experience.",
+    "p5_title": "ZapTrack (Fullstack)",
+    "p5_desc": "Fullstack app (Next.js/React) for managing links that don't convert on WhatsApp. It provides a dashboard to track and analyze the performance of the links. Focused on security, scalability, performance, and uses JWT Auth, Stripe, and PostgreSQL.",
+    "p6_title": "Fabrica das Copias",
+    "p6_desc": "Landing page for a big printing company, focused on providing a new modern, tech-savvy, and user-friendly experience and visual for the company.",
     "github_button": "View on GitHub"
   },
   "Contact": {

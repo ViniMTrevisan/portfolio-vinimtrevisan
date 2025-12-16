@@ -7,48 +7,48 @@ import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useTranslations } from 'next-intl';
 
 const projectsData = [
-    {
-        id: 'ecommerce-api',
-        titleKey: 'p1_title',
-        descKey: 'p1_desc',
-        technologies: ['Java', 'Spring Boot', 'AWS', 'Docker', 'PostgreSQL', 'JWT'],
-        githubUrl: 'https://github.com/ViniMTrevisan/spring-e-commerce',
-    },
-    {
-        id: 'finance-app',
-        titleKey: 'p2_title',
-        descKey: 'p2_desc',
-        technologies: ['Java', 'Spring Boot', 'Nextjs', 'React', 'MySQL', 'Fullstack', 'JWT'],
-        githubUrl: 'https://github.com/ViniMTrevisan/app-financas',
-    },
-    {
-        id: 'agendamento-praia',
-        titleKey: 'p3_title',
-        descKey: 'p3_desc',
-        technologies: ['Typescript', 'Next.js', 'React', 'PostgreSQL', 'SOLID', 'JWT', 'Supabase'],
-        githubUrl: 'https://github.com/ViniMTrevisan/agendamento-casa-praia',
-    },
-    {
-        id: 'ollama-api',
-        titleKey: 'p4_title',
-        descKey: 'p4_desc',
-        technologies: ['Python', 'FastAPI', 'Ollama', 'APIs REST', 'IA'],
-        githubUrl: 'https://github.com/ViniMTrevisan/api-pergunta',
-    },
-    {
-        id: 'mytube',
-        titleKey: 'p5_title',
-        descKey: 'p5_desc',
-        technologies: ['Java', 'OOP', 'Dependency Injection', 'SOLID'],
-        githubUrl: 'https://github.com/ViniMTrevisan/java-estudos/tree/main/projetos-java/src/mytube',
-    },
-    {
-        id: 'kindact',
-        titleKey: 'p6_title',
-        descKey: 'p6_desc',
-        technologies: ['PHP', 'MySQL', 'JavaScript', 'SQL Views'],
-        githubUrl: 'https://github.com/ViniMTrevisan/kindact',
-    }
+  {
+    id: 'ecommerce-api',
+    titleKey: 'p1_title',
+    descKey: 'p1_desc',
+    technologies: ['Java', 'Spring Boot', 'AWS', 'Docker', 'PostgreSQL', 'JWT'],
+    githubUrl: 'https://github.com/ViniMTrevisan/spring-e-commerce',
+  },
+  {
+    id: 'finance-app',
+    titleKey: 'p2_title',
+    descKey: 'p2_desc',
+    technologies: ['Java', 'Spring Boot', 'Nextjs', 'React', 'MySQL', 'Fullstack', 'JWT'],
+    githubUrl: 'https://github.com/ViniMTrevisan/app-financas',
+  },
+  {
+    id: 'agendamento-praia',
+    titleKey: 'p3_title',
+    descKey: 'p3_desc',
+    technologies: ['Typescript', 'Next.js', 'React', 'PostgreSQL', 'SOLID', 'JWT', 'Supabase', 'FullStack'],
+    githubUrl: 'https://github.com/ViniMTrevisan/agendamento-casa-praia',
+  },
+  {
+    id: 'nex-solutions',
+    titleKey: 'p4_title',
+    descKey: 'p4_desc',
+    technologies: ['Typescript', 'Next.js', 'React', 'Framer', 'Tailwind', 'StartUp', 'Web-Development'],
+    githubUrl: 'https://github.com/ViniMTrevisan/nex-solutions',
+  },
+  {
+    id: 'zap-track',
+    titleKey: 'p5_title',
+    descKey: 'p5_desc',
+    technologies: ['Typescript', 'Next.js', 'React', 'Tailwind', 'PostgreSQL', 'JWT', 'Supabase', 'SaaS', 'Fullstack', 'SOLID'],
+    githubUrl: 'https://github.com/ViniMTrevisan/zaptrack',
+  },
+  {
+    id: 'fabrica-das-copias',
+    titleKey: 'p6_title',
+    descKey: 'p6_desc',
+    technologies: ['Typescript', 'Next.js', 'React', 'Tailwind', 'FrontEnd', 'Web-Development', 'Freelance'],
+    githubUrl: 'https://github.com/ViniMTrevisan/fabrica-das-copias-freela',
+  }
 ];
 
 const containerVariants = {
@@ -76,16 +76,16 @@ export default function Projects() {
 
   return (
     <section className="w-full max-w-6xl mx-auto py-24 px-6">
-      
+
       <h2 className="text-4xl font-bold text-center mb-12">
         {t("title")}
       </h2>
 
-      <motion.div 
+      <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        variants={containerVariants} 
+        variants={containerVariants}
         initial="hidden"
-        whileInView="visible"      
+        whileInView="visible"
         viewport={{ amount: 0.2 }}
         onViewportEnter={() => setActiveSection('#projects')}
       >
@@ -106,8 +106,8 @@ export default function Projects() {
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
-                  <span 
-                    key={tech} 
+                  <span
+                    key={tech}
                     className="bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs font-medium px-2.5 py-0.5 rounded-full"
                   >
                     {tech}
@@ -116,7 +116,7 @@ export default function Projects() {
               </div>
             </div>
             <div className="bg-white dark:bg-zinc-800 p-4 border-t border-zinc-200 dark:border-zinc-700">
-              <a 
+              <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"

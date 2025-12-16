@@ -55,12 +55,12 @@
     "p2_desc": "Aplicação fullstack com back-end em Spring Boot e front-end em React para gestão financeira.",
     "p3_title": "Agendamento de Casa de Praia (Fullstack)",
     "p3_desc": "App fullstack (Node.js/React) para agendamento, com CRUD completo, autenticação JWT e banco PostgreSQL.",
-    "p4_title": "API Python + Ollama",
-    "p4_desc": "API em Python (FastAPI) que se comunica com o modelo de linguagem local Ollama.",
-    "p5_title": "MyTube Video Processor (Java SOLID)",
-    "p5_desc": "App em Java que demonstra Injeção de Dependência e SOLID para processar vídeos. Foco em arquitetura.",
-    "p6_title": "Kindact (Sistema Web)",
-    "p6_desc": "Sistema web em PHP e MySQL para ONGs/voluntários com autenticação de múltiplos perfis.",
+    "p4_title": "Nex Solutions",
+    "p4_desc": "Startup de desenvolvimento web, focada em fornecer soluções modernas, escaláveis e inovadoras para empresas com preços acessíveis e uma experiência de usuário excepcional.",
+    "p5_title": "ZapTrack (Fullstack)",
+    "p5_desc": "App fullstack (Next.js/React) para gerenciar links que não convertem no WhatsApp. Fornece um dashboard para rastrear e analisar o desempenho dos links (anúncios), e um plano Freemium com 10 links ativos. Foco em segurança, escalabilidade, performance e utiliza JWT Auth, Stripe e PostgreSQL.",
+    "p6_title": "Fabrica das Copias",
+    "p6_desc": "Landing page para uma grande empresa de impressão, focada em fornecer uma experiência moderna, tecnológica e visual para a empresa.",
     "github_button": "Ver no GitHub"
   },
   "Contact": {
