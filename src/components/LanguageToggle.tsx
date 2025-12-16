@@ -18,13 +18,13 @@ export default function LanguageToggle() {
   // Remove o locale atual do pathname para construir o link
   const pathnameWithoutLocale = pathname.replace(`/${locale}`, "");
   const newLocale = isPortuguese ? "en" : "pt";
-  
+
   const handleClick = () => {
     startTransition(() => {
       router.replace(`/${newLocale}${pathnameWithoutLocale}`);
     });
   };
-  
+
   return (
     <button
       onClick={handleClick}
@@ -38,15 +38,15 @@ export default function LanguageToggle() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className={`flex items-center gap-1 bg-zinc-200 dark:bg-zinc-700 
-                     text-zinc-700 dark:text-zinc-300 px-3 py-1.5 rounded-full
-                     hover:bg-zinc-300 dark:hover:bg-zinc-600 transition-colors
-                     ${isPending ? 'opacity-50 cursor-wait' : ''}`}
+          className={`flex items-center gap-2 px-3 py-1.5 rounded-full
+                     bg-white/5 border border-white/10 backdrop-blur-sm
+                     text-zinc-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300
+                     shadow-sm ${isPending ? 'opacity-50 cursor-wait' : ''}`}
         >
-          <IoLanguage className="w-4 h-4" />
-          {isPortuguese ? "EN" : "PT"}
+          <IoLanguage className="w-4 h-4 text-primary" />
+          <span className="font-mono text-xs font-bold tracking-wider">{isPortuguese ? "EN" : "PT"}</span>
         </motion.div>
       </AnimatePresence>
-    </button>
+    </button >
   );
 }

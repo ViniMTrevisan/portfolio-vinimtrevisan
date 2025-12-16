@@ -7,8 +7,9 @@
     "contact": "Contato"
   },
   "Hero": {
-    "title": "Engenheiro de Back-End & DevOps",
-    "subtitle": "Java • Spring • Python • AWS • Docker",
+    "title": "Engenheiro Full Stack",
+    "subtitle": "Java (SpringBoot) • Python (FastAPI) • Next.js • TypeScript • AWS • Docker",
+    "hero_description": "Construindo aplicações escaláveis e de alta performance com <highlight>tecnologias modernas</highlight>.",
     "button_cv": "Baixar CV (Inglês)",
     "button_linkedin": "LinkedIn",
     "button_github": "GitHub"
@@ -16,19 +17,19 @@
   "About": {
     "title": "Minha Trajetória",
     "card1_title": "Filosofia e Foco",
-    "card1_li1": "Estudante de Engenharia de Software na PUCPR.",
-    "card1_li2": "Impulsionado pelo lema \"Aprenda uma coisa nova a cada dia!\", com paixão por criar soluções de software escaláveis e inovadoras.",
-    "card1_li3": "Iniciei a minha jornada na programação em 2022 com JavaScript, aprofundando os estudos em Python em 2023.",
-    "card1_li4": "Atualmente focado no estudo e desenvolvimento de projetos inovadores e escaláveis, com Java (Spring Boot), React, NextJS, Docker, Terraform e AWS.",
+    "card1_li1": "Estudante de <strong>Engenharia de Software</strong> na PUCPR.",
+    "card1_li2": "Impulsionado pelo lema \"<strong>Aprenda uma coisa nova a cada dia!</strong>\", com paixão por criar soluções de software escaláveis e inovadoras.",
+    "card1_li3": "Iniciei a minha jornada na programação em 2022 com <strong>JavaScript</strong>, aprofundando os estudos em <strong>Python</strong> em 2023.",
+    "card1_li4": "Atualmente focado no estudo e desenvolvimento de projetos inovadores e escaláveis, com <strong>Java (Spring Boot)</strong>, <strong>React</strong>, <strong>NextJS</strong>, <strong>Docker</strong>, <strong>Terraform</strong> e <strong>AWS</strong>.",
     "card2_title": "Resiliência e Adaptação",
-    "card2_li1": "Minha mentalidade foi forjada no futebol, encarando o esporte (e a programação) com dedicação, resiliência e trabalho em equipe.",
-    "card2_li2": "Aprendi a encarar frustrações e a nunca desistir, uma habilidade aplicada diariamente ao depurar códigos.",
-    "card2_li3": "Alem disso, minha resiliência e adaptabilidade foram testadas em um intercâmbio em Utah, EUA, superando desafios de adaptação e conquistando um campeonato regional no time de futebol.",
-    "card2_li4": "Consolidei a fluência em inglês durante a experiência internacional.",
+    "card2_li1": "Minha mentalidade foi forjada no <strong>futebol</strong>, encarando o esporte (e a programação) com dedicação, resiliência e trabalho em equipe.",
+    "card2_li2": "Aprendi a encarar frustrações e a <strong>nunca desistir</strong>, uma habilidade aplicada diariamente ao depurar códigos.",
+    "card2_li3": "Alem disso, minha resiliência e adaptabilidade foram testadas em um intercâmbio em <strong>Utah, EUA</strong>, superando desafios de adaptação e conquistando um campeonato regional no time de futebol.",
+    "card2_li4": "Consolidei a <strong>fluência em inglês</strong> durante a experiência internacional.",
     "card3_title": "Objetivos",
-    "card3_li1": "Experiência prática desde o primeiro grande projeto (um portal para ONGs em PHP/MySQL) até as responsabilidades atuais na Vivo: criar soluções escaláveis para resolver problemas diários.",
-    "card3_li2": "No curto prazo, quero me desafiar com o desenvolvimento de novos projetos e automações para aprender mais e melhorar como profissional na área de Engenharia de Software.",
-    "card3_li3": "No longo prazo, o objetivo é crescer como desenvolvedor, garantindo que minhas habilidades estão sendo aplicadas para inovar, cuidar, e ajudar as pessoas do mundo inteiro.",
+    "card3_li1": "Experiência prática construindo aplicações robustas full-stack como <strong>ZapTrack</strong> e <strong>APIs de E-commerce</strong>, utilizando <strong>Java (Spring)</strong>, <strong>Next.js (TS)</strong>, <strong>Docker</strong> e <strong>AWS</strong>.",
+    "card3_li2": "Na <strong>Vivo</strong>, projeto soluções de dados escaláveis usando <strong>Python (FastAPI)</strong>, <strong>SQL Server</strong> e <strong>pipelines ETL</strong> complexos para resolver problemas críticos de negócio.",
+    "card3_li3": "Ganhar experiência construindo softwares seguros, escaláveis e úteis que resolvam problemas reais, preparando o terreno para crescer minha própria empresa, <strong>Nex Solutions</strong>.",
     "card3_li4": "Entregar inovação, dedicação e cuidado em todas as soluções criadas."
   },
   "Experience": {
@@ -36,10 +37,11 @@
     "job_title": "Estagiário de Engenharia de Software",
     "date": "Presente",
     "company": "Vivo (Telefônica Brasil)",
-    "li1": "Desenvolvimento e manutenção de aplicações de produção em <strong>Python</strong>, <strong>Flask</strong> e <strong>MySQL</strong>.",
-    "li2": "Automação de processos de negócio complexos, resultando em otimização de eficiência para a equipe.",
-    "li3": "Refatoração de sistemas legados para arquiteturas mais modernas e escaláveis.",
-    "li4": "Análise e modelagem de dados para extração de relatórios e métricas de performance."
+    "li1": "Desenvolvimento de <strong>pipelines de automação em Python</strong> (Pandas) que zeraram o esforço manual na análise de backlogs e métricas de SLA.",
+    "li2": "Criação de soluções <strong>Full Stack de alta performance</strong> (Flask + Rust parsers) para processar relatórios operacionais complexos (~10k linhas) com mapeamento geográfico.",
+    "li3": "Engenharia de um <strong>pipeline ETL modular</strong> (500k registros/mês) com processamento via ODBC e <strong>troca atômica no SQL Server</strong>, garantindo 100% de confiabilidade nos dados.",
+    "li4": "Modernização do ecossistema de dados com <strong>Clean Architecture</strong>, unificando fontes Excel e SQL Server em uma API robusta com <strong>FastAPI</strong>.",
+    "li5": "Desenvolvimento de um <strong>Dashboard Estratégico</strong> (Next.js, Tailwind) adotado por diretores e gerentes para monitoramento de KPIs em escala nacional."
   },
   "Technologies": {
     "title": "Minha Stack de Tecnologias",

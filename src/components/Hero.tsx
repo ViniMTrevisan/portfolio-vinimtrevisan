@@ -5,116 +5,114 @@ import { motion } from 'framer-motion';
 import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import Image from 'next/image';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { Download } from 'lucide-react';
+import { Download, ArrowDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import MagneticButton from './ui/MagneticButton';
 
 export default function Hero() {
   const { setActiveSection } = useActiveSection();
   const t = useTranslations('Hero');
 
   return (
-    <section className="min-h-screen w-full flex items-center justify-center pt-24 md:pt-0">
-      
-      <motion.div 
-        className="flex flex-col md:flex-row items-center justify-between gap-12 max-w-6xl mx-auto px-6"
-        initial={{ opacity: 0, y: 20 }}
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-20">
+
+      {/* Background Decor */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/20 blur-[120px] rounded-full -z-10 animate-pulse-glow" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-secondary/10 blur-[100px] rounded-full -z-10" />
+
+      <motion.div
+        className="flex flex-col items-center text-center max-w-5xl mx-auto px-6 z-10"
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 1, ease: "easeOut" }}
         onViewportEnter={() => setActiveSection("")}
         viewport={{ amount: 0.5 }}
       >
 
-        {/* Coluna de Texto (Esquerda) */}
-        <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400">
-            Vinicius Meier Trevisan
-          </h1>
-          <p className="mt-4 text-lg md:text-xl text-zinc-600 dark:text-zinc-400">
-            {t("title")} | {t("subtitle")}
-          </p>
+        {/* Badge / Availability Status */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="mb-8 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md flex items-center gap-2"
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+          </span>
+          <span className="text-sm font-medium text-primary-foreground tracking-wide">Available for new projects</span>
+        </motion.div>
 
-          {/* Botões de Ação */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            
-            <a 
+        {/* Main Title */}
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
+          <span className="block text-foreground drop-shadow-xl">Vinicius M. Trevisan</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary animate-shimmer bg-[length:200%_100%]">
+            Full Stack Engineer
+          </span>
+        </h1>
+
+        <p className="max-w-2xl text-lg md:text-xl text-zinc-400 mb-10 leading-relaxed">
+          {t("title")} | {t("subtitle")}
+          <br />
+          {t.rich("hero_description", {
+            highlight: (chunks) => <span className="text-primary font-semibold">{chunks}</span>
+          })}
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-5 items-center w-full justify-center">
+          <MagneticButton>
+            <a
               href="/CV English - Vinicius Trevisan.pdf"
               download
-              className="flex items-center justify-center gap-2 px-6 py-3 
-                         font-semibold text-white bg-cyan-600 rounded-lg shadow-lg
-                         hover:bg-cyan-700 transition-all duration-300"
+              className="group relative px-8 py-4 rounded-xl bg-primary text-black font-bold text-lg shadow-[0_0_20px_rgba(6,182,212,0.4)] 
+                           hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all duration-300 overflow-hidden block"
             >
-              <Download size={20} />
-              {t("button_cv")}
+              <span className="relative z-10 flex items-center gap-2">
+                <Download size={20} />
+                {t("button_cv")}
+              </span>
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-in-out" />
             </a>
+          </MagneticButton>
 
-            <a 
-              href="https://www.linkedin.com/in/vinicius-meier-trevisan-741b66329/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-6 py-3 
-                         font-semibold text-zinc-800 dark:text-zinc-100 bg-zinc-200 dark:bg-zinc-700 rounded-lg shadow-lg
-                         hover:bg-zinc-300 dark:hover:bg-zinc-600 transition-all duration-300"
-            >
-              <FaLinkedin size={20} />
-              {t("button_linkedin")}
-            </a>
+          <div className="flex gap-4">
+            <MagneticButton strength={40}>
+              <a
+                href="https://www.linkedin.com/in/vinicius-meier-trevisan-741b66329/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:text-secondary block transition-all duration-300"
+              >
+                <FaLinkedin size={24} />
+              </a>
+            </MagneticButton>
 
-            <a 
-              href="https://github.com/ViniMTrevisan"
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-6 py-3 
-                         font-semibold text-zinc-800 dark:text-zinc-100 bg-zinc-200 dark:bg-zinc-700 rounded-lg shadow-lg
-                         hover:bg-zinc-300 dark:hover:bg-zinc-600 transition-all duration-300"
-            >
-              <FaGithub size={20} />
-              {t("button_github")}
-            </a>
-
+            <MagneticButton strength={40}>
+              <a
+                href="https://github.com/ViniMTrevisan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 block transition-all duration-300"
+              >
+                <FaGithub size={24} />
+              </a>
+            </MagneticButton>
           </div>
         </div>
 
-        {/* Coluna da Foto (Direita) */}
-        <div className="flex-shrink-0">
-          
-          {/* Este 'motion.div' é o wrapper.
-            Ele tem o gradiente e a animação "respirando"
-          */}
-          <motion.div
-            className="relative rounded-full shadow-2xl
-                       p-1.5 // Esta é a espessura da borda
-                       bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-400"
-                       
-            // Animação de entrada E "respirando"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ 
-              scale: [1, 1.02, 1], // A animação "respirando"
-              opacity: 1 
-            }}
-            transition={{
-              // A 'scale' respira em loop
-              scale: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 },
-              // A 'opacity' só na entrada
-              opacity: { duration: 0.5, ease: "easeOut" }
-            }}
-            
-            // O "crescimento" no hover (sobrescreve a respiração)
-            whileHover={{ scale: 1.05 }}
-          >
-            <Image
-              src="/foto_principal.jpeg"
-              alt="Foto de Vinicius Meier Trevisan"
-              width={280}
-              height={280}
-              quality={95}
-              priority
-              // A Imagem agora fica "dentro" do padding do wrapper
-              className="rounded-full object-cover w-56 h-56 md:w-72 md:h-72" 
-            />
-          </motion.div>
-        </div>
-
       </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-500"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ delay: 2, duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <ArrowDown size={24} />
+      </motion.div>
+
     </section>
   );
 }

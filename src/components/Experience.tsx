@@ -1,68 +1,107 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useTranslations } from 'next-intl';
+import { Briefcase } from 'lucide-react';
+
+const ExperienceCard = ({ index, children }: { index: number, children: React.ReactNode }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, delay: index * 0.2 }}
+      className={`relative pl-8 md:pl-0 w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right md:ml-0' : 'md:pl-12 md:ml-auto'}`}
+    >
+      <div className="bg-card backdrop-blur-md border border-white/10 p-8 rounded-2xl shadow-xl hover:shadow-primary/10 transition-shadow duration-300 group">
+        {children}
+
+        {/* Connector Dot */}
+        <div className={`absolute top-8 w-4 h-4 rounded-full bg-primary border-4 border-background z-20 
+                          ${index % 2 === 0 ? '-right-[58px] left-auto' : '-left-[58px]'}
+                          hidden md:block group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_var(--color-primary)]`} />
+
+        {/* Mobile Connector Dot */}
+        <div className="absolute top-8 left-[-9px] w-4 h-4 rounded-full bg-primary border-4 border-background z-20 md:hidden block shadow-[0_0_10px_var(--color-primary)]" />
+      </div>
+    </motion.div>
+  );
+};
 
 export default function Experience() {
   const { setActiveSection } = useActiveSection();
   const t = useTranslations('Experience');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <motion.section 
-      className="w-full max-w-4xl mx-auto py-24 px-6"
-      initial={{ opacity: 0, y: 50 }} 
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ amount: 0.5 }} 
-      onViewportEnter={() => setActiveSection('#experience')}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+    <section
+      id="experience"
+      ref={containerRef}
+      className="w-full py-32 relative overflow-hidden"
+      onMouseEnter={() => setActiveSection('#experience')}
     >
-      
-      <h2 className="text-4xl font-bold text-center mb-12">
-        {t("title")}
-      </h2>
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold text-center mb-24 bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-500"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          {t("title")}
+        </motion.h2>
 
-      <div className="bg-white dark:bg-zinc-800 p-8 rounded-lg shadow-lg">
-        
-        {/* Cabeçalho do "Cargo" */}
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-2xl font-semibold text-cyan-500 dark:text-cyan-300">
-            {t("job_title")}
-          </h3>
-          <span className="text-zinc-600 dark:text-zinc-400">{t("date")}</span>
+        <div className="relative">
+          {/* Center Line (Desktop) */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-zinc-800 hidden md:block">
+            <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-primary via-secondary to-primary" />
+          </div>
+
+          {/* Left Line (Mobile) */}
+          <div className="absolute left-0 w-0.5 h-full bg-zinc-800 md:hidden block">
+            <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-primary via-secondary to-primary" />
+          </div>
+
+          <div className="space-y-12">
+            {/* Since we only have one dynamic job in translation currently, we map it manually 
+                   In a real scenario we'd map an array, but here we construct the card directly from `t`
+               */}
+
+            <ExperienceCard index={0}>
+              <div className="flex flex-col gap-2">
+                <span className="text-primary font-mono text-sm tracking-widest uppercase">{t("date")}</span>
+                <h3 className="text-2xl font-bold text-white mb-1">{t("job_title")}</h3>
+                <h4 className="text-lg font-medium text-zinc-400 flex items-center gap-2 md:justify-end md:flex-row-reverse">
+                  <Briefcase size={16} />
+                  {t("company")}
+                </h4>
+
+                <ul className="mt-6 space-y-3 text-zinc-300 text-sm leading-relaxed text-left">
+                  {[1, 2, 3, 4, 5].map(num => (
+                    <li key={num} className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0" />
+                      <span>
+                        {t.rich(`li${num}`, {
+                          strong: (chunks) => <strong className="text-white font-semibold">{chunks}</strong>,
+                          highlight: (chunks) => <span className="text-primary font-semibold">{chunks}</span>
+                        })}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ExperienceCard>
+
+          </div>
         </div>
-        
-        {/* Nome da Empresa */}
-        <h4 className="text-xl font-medium text-zinc-900 dark:text-zinc-100 mb-6">
-          {t("company")}
-        </h4>
-
-        {/* Descrição e Responsabilidades */}
-        <ul className="list-disc list-inside space-y-3 text-zinc-700 dark:text-zinc-300 leading-relaxed">
-          <li>
-            {t.rich('li1', {
-              strong: (chunks) => <strong className="text-zinc-900 dark:text-white font-semibold">{chunks}</strong>
-            })}
-          </li>
-          <li>
-            {t.rich('li2', {
-              strong: (chunks) => <strong className="text-zinc-900 dark:text-white font-semibold">{chunks}</strong>
-            })}
-          </li>
-          <li>
-            {t.rich('li3', {
-              strong: (chunks) => <strong className="text-zinc-900 dark:text-white font-semibold">{chunks}</strong>
-            })}
-          </li>
-          <li>
-            {t.rich('li4', {
-              strong: (chunks) => <strong className="text-zinc-900 dark:text-white font-semibold">{chunks}</strong>
-            })}
-          </li>
-        </ul>
-
       </div>
-    </motion.section>
+    </section>
   );
 }

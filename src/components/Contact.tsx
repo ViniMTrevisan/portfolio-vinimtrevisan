@@ -1,106 +1,108 @@
-"use client"; 
+"use client";
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useTranslations } from 'next-intl';
+import { Send, Mail, User, MessageSquare } from 'lucide-react';
 
 export default function Contact() {
   const { setActiveSection } = useActiveSection();
   const t = useTranslations('Contact');
 
   return (
-    <motion.section 
-      className="w-full max-w-2xl mx-auto py-24 px-6"
-      initial={{ opacity: 0, y: 50 }} 
-      whileInView={{ opacity: 1, y: 0 }}
-      
-      // 3. Modifique/Adicione estas duas linhas
-      viewport={{ amount: 0.5 }} // Removemos o 'once: true'
-      onViewportEnter={() => setActiveSection('#contact')} // Define a seção
-      
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+    <section
+      id="contact"
+      className="w-full py-32 px-6 relative overflow-hidden"
+      onMouseEnter={() => setActiveSection('#contact')}
     >
-      <h2 className="text-4xl font-bold text-center mb-6">
-        {t("title")}
-      </h2>
-      <p className="text-center text-zinc-600 dark:text-zinc-400 mb-10">
-        {t("subtitle")}
-      </p>
+      {/* Background Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/10 blur-[100px] rounded-full -z-10" />
 
-      <form 
-        action={process.env.NEXT_PUBLIC_FORMSPREE_ID}
-        method="POST"
-        className="space-y-6"
-        onSubmit={(e) => {
-          const form = e.currentTarget;
-          if (!form.checkValidity()) {
-            e.preventDefault();
-            return;
-          }
-        }}
-      >
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            {t("label_name")}
-          </label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            required 
-            minLength={2}
-            maxLength={100}
-            pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+"
-            className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700
-                       text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            placeholder={t("placeholder_name")}
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            {t("label_email")}
-          </label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required 
-            maxLength={254}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700
-                       text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            placeholder={t("placeholder_email")}
-          />
-        </div>
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            {t("label_message")}
-          </label>
-          <textarea 
-            id="message" 
-            name="message" 
-            required 
-            rows={5}
-            minLength={10}
-            maxLength={1000}
-            className="w-full px-4 py-3 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700
-                       text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            placeholder={t("placeholder_message")}
-          ></textarea>
-        </div>
-        <input type="text" name="_gotcha" style={{ display: 'none' }} />
-        <div>
-          <button 
+      <div className="max-w-xl mx-auto">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold mb-4">{t("title")}</h2>
+          <p className="text-zinc-400">{t("subtitle")}</p>
+        </motion.div>
+
+        <motion.form
+          action={process.env.NEXT_PUBLIC_FORMSPREE_ID}
+          method="POST"
+          className="space-y-6 bg-card backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="space-y-2">
+            <label htmlFor="name" className="text-sm font-medium text-zinc-300 flex items-center gap-2">
+              <User size={16} className="text-primary" /> {t("label_name")}
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              minLength={2}
+              maxLength={100}
+              className="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10
+                         text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent
+                         transition-all duration-300"
+              placeholder={t("placeholder_name")}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="email" className="text-sm font-medium text-zinc-300 flex items-center gap-2">
+              <Mail size={16} className="text-primary" /> {t("label_email")}
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10
+                         text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent
+                         transition-all duration-300"
+              placeholder={t("placeholder_email")}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="message" className="text-sm font-medium text-zinc-300 flex items-center gap-2">
+              <MessageSquare size={16} className="text-primary" /> {t("label_message")}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={5}
+              minLength={10}
+              className="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10
+                         text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent
+                         transition-all duration-300 resize-none"
+              placeholder={t("placeholder_message")}
+            ></textarea>
+          </div>
+
+          <input type="text" name="_gotcha" style={{ display: 'none' }} />
+
+          <button
             type="submit"
-            className="w-full py-3 px-6 rounded-lg font-semibold text-white
-                       bg-cyan-600 hover:bg-cyan-700 transition-colors duration-300
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
+            className="w-full py-4 px-6 rounded-xl font-bold text-black
+                       bg-primary hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300
+                       shadow-[0_0_20px_rgba(6,182,212,0.3)] flex items-center justify-center gap-2 group"
           >
             {t("button_submit")}
+            <Send size={18} className="group-hover:translate-x-1 transition-transform" />
           </button>
-        </div>
-      </form>
-    </motion.section>
+        </motion.form>
+      </div>
+    </section>
   );
 }

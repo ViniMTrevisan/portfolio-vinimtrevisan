@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -7,12 +7,27 @@ import LenisProvider from "@/components/LenisProvider";
 import Navbar from "@/components/Navbar";
 import ActiveSectionProvider from "@/contexts/ActiveSectionContext";
 import CustomCursor from "@/components/CustomCursor";
+import BackgroundCanvas from "@/components/BackgroundCanvas";
+import ScrollProgress from "@/components/ScrollProgress";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: '--font-outfit',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: "Vinicius Trevisan | Engenheiro de Back-End & DevOps",
-  description: "Portfólio de Vinicius M. Trevisan, especialista em Java (Spring), Python, AWS, Docker e DevOps.",
+  title: "Vinicius Trevisan | Full Stack Engineer",
+  description: "Portfolio of Vinicius M. Trevisan, building high-performance scalable applications with modern tech.",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default async function LocaleLayout({
@@ -20,18 +35,20 @@ export default async function LocaleLayout({
   params
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }>) {
-  const {locale} = await params;
+  const { locale } = await params;
   setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
-    <html lang={locale}> 
-      <body className={`${inter.className} bg-zinc-900 text-white`}>
+    <html lang={locale}>
+      <body className={`${inter.variable} ${outfit.variable} antialiased bg-background text-foreground font-sans overflow-x-hidden selection:bg-cyan-500 selection:text-white`}>
         <NextIntlClientProvider messages={messages}>
           <ActiveSectionProvider>
-            <LenisProvider> 
+            <LenisProvider>
+              <ScrollProgress />
+              <BackgroundCanvas />
               <Navbar />
               <CustomCursor />
               {children}

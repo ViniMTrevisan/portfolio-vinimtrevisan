@@ -16,16 +16,19 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
       smoothWheel: true,
     });
 
+    let rafId: number;
+
     function raf(time: number) {
       newLenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    setLenis(newLenis); // Salvamos a instância do Lenis no estado
+    setLenis(newLenis);
 
     return () => {
-      newLenis.destroy(); // Limpamos ao sair
+      cancelAnimationFrame(rafId);
+      newLenis.destroy();
       setLenis(null);
     };
   }, []);
