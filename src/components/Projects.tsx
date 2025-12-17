@@ -53,7 +53,7 @@ const projectsData = [
     titleKey: 'p6_title',
     descKey: 'p6_desc',
     technologies: ['Typescript', 'Next.js', 'React', 'Tailwind'],
-    githubUrl: 'https://github.com/ViniMTrevisan/fabrica-das-copias-freela',
+    githubUrl: 'https://www.fabricadascopias.com.br/',
     featured: false,
   }
 ];
