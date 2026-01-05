@@ -10,6 +10,8 @@
     "title": "Full Stack Engineer",
     "subtitle": "Java (SpringBoot) • Python (FastAPI) • Next.js • TypeScript • AWS • Docker",
     "hero_description": "Building scalable, high-performance applications with <highlight>modern tech</highlight>.",
+    "details": "Specialized in building full-stack applications with high-performance code, focusing on user experience and security.",
+    "available_for_freelance": "Available for freelance",
     "button_cv": "Download CV (English)",
     "button_linkedin": "LinkedIn",
     "button_github": "GitHub"
@@ -51,6 +53,9 @@
   },
   "Projects": {
     "title": "Projects",
+    "header_title_1": "SELECTED",
+    "header_title_2": "WORKS",
+    "header_desc": "A collection of digital experiences, applications, and experiments.",
     "p1_title": "E-commerce API (Spring Boot & DevOps)",
     "p1_desc": "Complete RESTful API with microservices, Spring Security, and AWS deploy with Docker.",
     "p2_title": "Personal Finance App (Fullstack)",

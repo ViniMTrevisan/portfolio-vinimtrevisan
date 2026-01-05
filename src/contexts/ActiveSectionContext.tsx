@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState } from 'react';
 
 // Este é o "tipo" de seção que podemos ter
-export type SectionId = "#about" | "#experience" | "#technologies" | "#projects" | "#contact" | "";
+export type SectionId = "#home" | "#about" | "#experience" | "#technologies" | "#projects" | "#contact" | "";
 
 // Definimos o que o nosso Contexto vai "guardar"
 type ActiveSectionContextType = {
@@ -19,7 +19,7 @@ export default function ActiveSectionProvider({ children }: { children: React.Re
   const [activeSection, setActiveSection] = useState<SectionId>("");
 
   return (
-    <ActiveSectionContext.Provider 
+    <ActiveSectionContext.Provider
       value={{
         activeSection,
         setActiveSection,

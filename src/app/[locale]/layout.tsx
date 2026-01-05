@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
@@ -7,24 +7,23 @@ import LenisProvider from "@/components/LenisProvider";
 import Navbar from "@/components/Navbar";
 import ActiveSectionProvider from "@/contexts/ActiveSectionContext";
 import CustomCursor from "@/components/CustomCursor";
-import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollProgress from "@/components/ScrollProgress";
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: '--font-playfair',
   display: 'swap',
 });
 
-const outfit = Outfit({
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  variable: '--font-outfit',
+  variable: '--font-jetbrains',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Vinicius Trevisan | Full Stack Engineer",
-  description: "Portfolio of Vinicius M. Trevisan, building high-performance scalable applications with modern tech.",
+  title: "Vinicius Trevisan | Creative Developer",
+  description: "Portfolio of Vinicius M. Trevisan - Combining technical expertise with editorial design.",
   icons: {
     icon: '/favicon.ico',
   },
@@ -43,12 +42,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.variable} ${outfit.variable} antialiased bg-background text-foreground font-sans overflow-x-hidden selection:bg-cyan-500 selection:text-white`}>
+      <body className={`${playfair.variable} ${jetbrains.variable} antialiased bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-black`}>
         <NextIntlClientProvider messages={messages}>
           <ActiveSectionProvider>
             <LenisProvider>
               <ScrollProgress />
-              <BackgroundCanvas />
               <Navbar />
               <CustomCursor />
               {children}
