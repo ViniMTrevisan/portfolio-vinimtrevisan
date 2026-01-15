@@ -104,13 +104,13 @@ export default function Technologies() {
   return (
     <section
       id="technologies"
-      className="w-full py-32 overflow-hidden flex flex-col justify-center relative"
+      className="w-full py-24 md:py-32 px-6 md:px-12 overflow-hidden flex flex-col justify-center relative"
       onMouseEnter={() => setActiveSection('#technologies')}
     >
-      {/* Section Header - Following Projects style */}
-      <div className="max-w-6xl mx-auto px-6 mb-20 z-10 relative">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Section Header - Following Projects style */}
         <motion.div
-          className="space-y-6"
+          className="mb-20 space-y-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

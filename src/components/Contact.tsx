@@ -13,16 +13,16 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full py-32 px-6 relative overflow-hidden"
+      className="w-full py-24 md:py-32 px-6 md:px-12 relative overflow-hidden"
       onMouseEnter={() => setActiveSection('#contact')}
     >
       {/* Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/10 blur-[100px] rounded-full -z-10" />
 
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         {/* Section Header - Following Projects style */}
         <motion.div
-          className="mb-12 space-y-6"
+          className="mb-12 space-y-6 max-w-xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
