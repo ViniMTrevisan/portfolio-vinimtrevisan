@@ -64,10 +64,12 @@
     "p3_desc": "App fullstack (Node.js/React) para agendamento, com CRUD completo, autenticação JWT e banco PostgreSQL.",
     "p4_title": "Nex Solutions",
     "p4_desc": "Startup de desenvolvimento web, focada em fornecer soluções modernas, escaláveis e inovadoras para empresas com preços acessíveis e uma experiência de usuário excepcional.",
-    "p5_title": "ZapTrack (Fullstack)",
+    "p5_title": "ZapTrack",
     "p5_desc": "App fullstack (Next.js/React) para gerenciar links que não convertem no WhatsApp. Fornece um dashboard para rastrear e analisar o desempenho dos links (anúncios), e um plano Freemium com 10 links ativos. Foco em segurança, escalabilidade, performance e utiliza JWT Auth, Stripe e PostgreSQL.",
     "p6_title": "Fabrica das Copias",
     "p6_desc": "Landing page para uma grande empresa de impressão, focada em fornecer uma experiência moderna, tecnológica e visual para a empresa.",
+    "p7_title": "DayRide",
+    "p7_desc": "Plataforma completa de gestão de transporte para simplificar agendamento de corridas, otimização de rotas e gerenciamento de passageiros. Oferece sistema de assinaturas premium via Stripe, suporte PWA para experiência mobile nativa, rastreamento em tempo real com Google Maps, login com OAuth e notificações por email automatizadas. Construído com Next.js 16, TypeScript, PostgreSQL e NextAuth.js.",
     "github_button": "Ver no GitHub"
   },
   "Contact": {
