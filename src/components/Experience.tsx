@@ -49,14 +49,21 @@ export default function Experience() {
       onMouseEnter={() => setActiveSection('#experience')}
     >
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-24 bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-500"
+        {/* Section Header - Following Projects style */}
+        <motion.div
+          className="mb-20 space-y-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {t("title")}
-        </motion.h2>
+          <div className="space-y-2">
+            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
+              {t("title")}<span className="text-primary">.</span>
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
+          </div>
+        </motion.div>
 
         <div className="relative">
           {/* Center Line (Desktop) */}

@@ -107,11 +107,22 @@ export default function Technologies() {
       className="w-full py-32 overflow-hidden flex flex-col justify-center relative"
       onMouseEnter={() => setActiveSection('#technologies')}
     >
-      <div className="max-w-6xl mx-auto px-6 mb-16 text-center z-10 relative">
-        <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-zinc-500">
-          {t("title")}
-        </h2>
-        <div className="mt-4 w-20 h-1 bg-primary rounded-full mx-auto shadow-[0_0_15px_rgba(6,182,212,0.5)]" />
+      {/* Section Header - Following Projects style */}
+      <div className="max-w-6xl mx-auto px-6 mb-20 z-10 relative">
+        <motion.div
+          className="space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="space-y-2">
+            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
+              {t("title")}<span className="text-primary">.</span>
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
+          </div>
+        </motion.div>
       </div>
 
       <div className="flex flex-col gap-8 w-full">

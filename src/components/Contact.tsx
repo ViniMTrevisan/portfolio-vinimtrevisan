@@ -20,14 +20,21 @@ export default function Contact() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/10 blur-[100px] rounded-full -z-10" />
 
       <div className="max-w-xl mx-auto">
+        {/* Section Header - Following Projects style */}
         <motion.div
-          className="text-center mb-12"
+          className="mb-12 space-y-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-4">{t("title")}</h2>
-          <p className="text-zinc-400">{t("subtitle")}</p>
+          <div className="space-y-2">
+            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
+              {t("title")}<span className="text-primary">.</span>
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
+          </div>
+          <p className="text-zinc-400 text-sm md:text-base">{t("subtitle")}</p>
         </motion.div>
 
         <motion.form

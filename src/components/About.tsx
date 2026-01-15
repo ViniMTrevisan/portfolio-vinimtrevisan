@@ -97,16 +97,20 @@ export default function About() {
       onMouseEnter={() => setActiveSection('#about')}
     >
       <div className="max-w-6xl mx-auto">
+        {/* Section Header - Following Projects style */}
         <motion.div
-          className="text-center mb-20"
+          className="mb-20 space-y-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-500">
-            {t("title")}
-          </h2>
-          <div className="mt-4 w-1.5 h-10 bg-gradient-to-b from-primary to-transparent mx-auto rounded-full" />
+          <div className="space-y-2">
+            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
+              {t("title")}<span className="text-primary">.</span>
+            </h2>
+            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
