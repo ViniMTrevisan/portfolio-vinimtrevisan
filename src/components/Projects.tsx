@@ -35,13 +35,13 @@ const projectsData = [
     featured: true
   },
   {
-    id: 'ecommerce-api',
+    id: 'E-Commerce API',
     titleKey: 'p1_title',
     descKey: 'p1_desc',
     technologies: ['Java', 'Spring Boot', 'AWS'],
     githubUrl: 'https://github.com/ViniMTrevisan/spring-e-commerce',
     year: '2025',
-    featured: false
+    featured: true
   },
   {
     id: 'finance-app',
