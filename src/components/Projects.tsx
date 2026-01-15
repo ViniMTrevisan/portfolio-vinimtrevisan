@@ -21,7 +21,7 @@ const projectsData = [
     id: 'zaptrack',
     titleKey: 'p5_title',
     descKey: 'p5_desc',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'PostgreSQL', 'Stripe', 'Redis', 'Supabase', 'Prisma ORM', 'JWT Auth'],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'PostgreSQL', 'Stripe', 'Redis', 'Supabase', 'Prisma ORM', 'JWT Auth', 'Docker'],
     githubUrl: 'https://zaptrack.app.br/',
     year: '2026',
     featured: true
@@ -39,7 +39,7 @@ const projectsData = [
     id: 'E-Commerce API',
     titleKey: 'p1_title',
     descKey: 'p1_desc',
-    technologies: ['Java', 'Spring Boot', 'AWS'],
+    technologies: ['Java', 'Spring Boot', 'AWS', 'Docker', 'JWT Auth', 'MySQL'],
     githubUrl: 'https://github.com/ViniMTrevisan/spring-e-commerce',
     year: '2025',
     featured: true
