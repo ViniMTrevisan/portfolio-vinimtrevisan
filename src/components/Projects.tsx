@@ -12,7 +12,7 @@ const projectsData = [
     titleKey: 'p7_title',
     descKey: 'p7_desc',
     technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-    githubUrl: 'https://github.com/ViniMTrevisan/dayride',
+    githubUrl: 'https://dayride.vercel.app/',
     year: 'Ongoing',
     featured: true
   },
