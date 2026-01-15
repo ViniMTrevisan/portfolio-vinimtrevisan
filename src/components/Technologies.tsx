@@ -10,84 +10,94 @@ import {
 } from 'react-icons/fa';
 import {
   SiSpringboot, SiFlask, SiNextdotjs, SiTailwindcss,
-  SiTerraform, SiMysql, SiPostgresql, SiTypescript
+  SiTerraform, SiMysql, SiPostgresql, SiTypescript, SiFastapi
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 
-const allSkills = [
-  { nome: 'Java', icone: <FaJava size={24} /> },
-  { nome: 'Spring Boot', icone: <SiSpringboot size={24} /> },
-  { nome: 'Python', icone: <FaPython size={24} /> },
-  { nome: 'Flask', icone: <SiFlask size={24} /> },
-  { nome: 'Node.js', icone: <FaNodeJs size={24} /> },
-  { nome: 'REST APIs', icone: <TbApi size={24} /> },
-  { nome: 'React', icone: <FaReact size={24} /> },
-  { nome: 'Next.js', icone: <SiNextdotjs size={24} /> },
-  { nome: 'TypeScript', icone: <SiTypescript size={24} /> },
-  { nome: 'HTML5', icone: <FaHtml5 size={24} /> },
-  { nome: 'CSS3', icone: <FaCss3Alt size={24} /> },
-  { nome: 'Tailwind CSS', icone: <SiTailwindcss size={24} /> },
-  { nome: 'AWS', icone: <FaAws size={24} /> },
-  { nome: 'Docker', icone: <FaDocker size={24} /> },
-  { nome: 'Terraform', icone: <SiTerraform size={24} /> },
-  { nome: 'Git', icone: <FaGitAlt size={24} /> },
-  { nome: 'MySQL', icone: <SiMysql size={24} /> },
-  { nome: 'PostgreSQL', icone: <SiPostgresql size={24} /> },
+const techCategories = [
+  {
+    titleKey: 'cat1_title', // Back-end
+    skills: [
+      { nome: 'Java', icone: <FaJava size={32} /> },
+      { nome: 'Spring Boot', icone: <SiSpringboot size={32} /> },
+      { nome: 'TypeScript', icone: <SiTypescript size={32} /> },
+      { nome: 'Python', icone: <FaPython size={32} /> },
+      { nome: 'Flask', icone: <SiFlask size={32} /> },
+      { nome: 'FastAPI', icone: <SiFastapi size={32} /> },
+      { nome: 'Node.js', icone: <FaNodeJs size={32} /> },
+      { nome: 'REST APIs', icone: <TbApi size={32} /> },
+    ]
+  },
+  {
+    titleKey: 'cat2_title', // Front-end
+    skills: [
+      { nome: 'React', icone: <FaReact size={32} /> },
+      { nome: 'Next.js', icone: <SiNextdotjs size={32} /> },
+      { nome: 'HTML5', icone: <FaHtml5 size={32} /> },
+      { nome: 'CSS3', icone: <FaCss3Alt size={32} /> },
+      { nome: 'Tailwind CSS', icone: <SiTailwindcss size={32} /> },
+    ]
+  },
+  {
+    titleKey: 'cat3_title', // DevOps & Tools
+    skills: [
+      { nome: 'AWS', icone: <FaAws size={32} /> },
+      { nome: 'Docker', icone: <FaDocker size={32} /> },
+      { nome: 'Terraform', icone: <SiTerraform size={32} /> },
+      { nome: 'Git', icone: <FaGitAlt size={32} /> },
+      { nome: 'MySQL', icone: <SiMysql size={32} /> },
+      { nome: 'PostgreSQL', icone: <SiPostgresql size={32} /> },
+    ]
+  }
 ];
 
-const TechPill = ({ skill }: { skill: typeof allSkills[0] }) => (
-  <div className="flex items-center gap-3 px-6 py-3 mx-4
-                 bg-white/5 border border-white/10 rounded-full
-                 backdrop-blur-md transition-all duration-300
-                 hover:bg-primary/10 hover:border-primary/30 hover:shadow-[0_0_15px_rgba(6,182,212,0.2)]
-                 group cursor-default whitespace-nowrap">
-    <span className="text-zinc-400 group-hover:text-primary transition-colors">{skill.icone}</span>
-    <span className="text-zinc-300 font-medium group-hover:text-white transition-colors">{skill.nome}</span>
-  </div>
+const TechCard = ({ skill, index }: { skill: { nome: string, icone: React.ReactNode }, index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4, delay: index * 0.05 }}
+    viewport={{ once: true, margin: "-50px" }}
+    className="group relative border border-white/10 bg-gradient-to-br from-zinc-900/50 to-zinc-950/50 backdrop-blur-sm rounded-lg p-6 hover:border-primary/50 transition-all duration-300"
+  >
+    {/* Hover gradient */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg pointer-events-none" />
+
+    <div className="relative flex flex-col items-center gap-3 text-center">
+      <div className="text-zinc-400 group-hover:text-primary transition-colors duration-300 group-hover:scale-110 transform">
+        {skill.icone}
+      </div>
+      <span className="text-sm font-mono text-zinc-300 group-hover:text-white transition-colors duration-300">
+        {skill.nome}
+      </span>
+    </div>
+  </motion.div>
 );
 
-const MarqueeRow = ({ skills, direction = 'left', speed = 20 }: { skills: typeof allSkills, direction?: 'left' | 'right', speed?: number }) => {
+const CategorySection = ({ category, categoryIndex }: { category: typeof techCategories[0], categoryIndex: number }) => {
+  const t = useTranslations('Technologies');
+
   return (
-    <div className="relative flex overflow-hidden py-4">
+    <div className="space-y-6">
+      {/* Category Title */}
       <motion.div
-        className="flex min-w-full flex-shrink-0"
-        animate={{ x: direction === 'left' ? '-100%' : '100%' }}
-        initial={{ x: 0 }}
-        transition={{ repeat: Infinity, ease: "linear", duration: speed }}
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+        viewport={{ once: true }}
+        className="flex items-center gap-3"
       >
-        {[...skills, ...skills, ...skills].map((skill, i) => ( // Repeat 3 times for smoothness
-          <TechPill key={`${skill.nome}-${i}`} skill={skill} />
+        <div className="h-[1px] w-8 bg-zinc-700" />
+        <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-600">
+          {t(category.titleKey)}
+        </h3>
+      </motion.div>
+
+      {/* Skills Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        {category.skills.map((skill, index) => (
+          <TechCard key={skill.nome} skill={skill} index={index} />
         ))}
-      </motion.div>
-
-      {/* Absolute positioning trick to seamless loop without gap? 
-          Actually simpler: Create two identical motion divs side by side.
-      */}
-      <motion.div
-        className="flex min-w-full flex-shrink-0 absolute top-4 left-0" // Overlaying one
-        animate={{ x: direction === 'left' ? ['0%', '-100%'] : ['0%', '100%'] }} // Wait, standard marquee needs 2 copies moving together
-      // Let's use the standard "infinite track" approach instead of absolute.
-      />
-    </div>
-  );
-};
-
-// Better Marquee Implementation
-const InfiniteLoop = ({ children, direction = "left", speed = 25 }: { children: React.ReactNode, direction?: "left" | "right", speed?: number }) => {
-  return (
-    <div className="flex overflow-hidden w-full mask-linear-fade relative">
-      {/* Fade Edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-background to-transparent" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-background to-transparent" />
-
-      <motion.div
-        className="flex flex-shrink-0 gap-0"
-        animate={{ x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] }}
-        transition={{ ease: "linear", duration: speed, repeat: Infinity }}
-      >
-        {children}
-        {children}
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -96,15 +106,10 @@ export default function Technologies() {
   const { setActiveSection } = useActiveSection();
   const t = useTranslations('Technologies');
 
-  // Splitting skills into rows
-  const row1 = allSkills.slice(0, 6);
-  const row2 = allSkills.slice(6, 12);
-  const row3 = allSkills.slice(12, 18);
-
   return (
     <section
       id="technologies"
-      className="w-full py-24 md:py-32 px-6 md:px-12 overflow-hidden flex flex-col justify-center relative"
+      className="w-full py-24 md:py-32 px-6 md:px-12 relative bg-background"
       onMouseEnter={() => setActiveSection('#technologies')}
     >
       <div className="max-w-[1400px] mx-auto">
@@ -123,28 +128,14 @@ export default function Technologies() {
             <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
           </div>
         </motion.div>
+
+        {/* Categories */}
+        <div className="space-y-12">
+          {techCategories.map((category, index) => (
+            <CategorySection key={category.titleKey} category={category} categoryIndex={index} />
+          ))}
+        </div>
       </div>
-
-      <div className="flex flex-col gap-8 w-full">
-        <InfiniteLoop direction="left" speed={30}>
-          <div className="flex">
-            {allSkills.slice(0, 9).map((skill, i) => <TechPill key={i} skill={skill} />)}
-          </div>
-        </InfiniteLoop>
-
-        <InfiniteLoop direction="right" speed={35}>
-          <div className="flex">
-            {allSkills.slice(9, 18).map((skill, i) => <TechPill key={i} skill={skill} />)}
-          </div>
-        </InfiniteLoop>
-
-        <InfiniteLoop direction="left" speed={40}>
-          <div className="flex">
-            {allSkills.slice(0, 18).filter((_, i) => i % 2 === 0).map((skill, i) => <TechPill key={i} skill={skill} />)}
-          </div>
-        </InfiniteLoop>
-      </div>
-
     </section>
   );
 }
