@@ -45,10 +45,10 @@ export default function Experience() {
     <section
       id="experience"
       ref={containerRef}
-      className="w-full py-32 relative overflow-hidden"
+      className="w-full py-24 md:py-32 px-6 md:px-12 relative overflow-hidden bg-background"
       onMouseEnter={() => setActiveSection('#experience')}
     >
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Section Header - Following Projects style */}
         <motion.div
           className="mb-20 space-y-6"

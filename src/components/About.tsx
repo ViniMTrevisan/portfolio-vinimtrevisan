@@ -93,10 +93,10 @@ export default function About() {
   return (
     <section
       id="about"
-      className="w-full py-32 px-6 relative"
+      className="w-full py-24 md:py-32 px-6 md:px-12 relative bg-background"
       onMouseEnter={() => setActiveSection('#about')}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         {/* Section Header - Following Projects style */}
         <motion.div
           className="mb-20 space-y-6"

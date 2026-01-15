@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useTranslations } from 'next-intl';
 import {
-  FaJava, FaPython, FaNodeJs, FaReact, FaHtml5,
+  FaJava, FaPython, FaReact, FaHtml5,
   FaCss3Alt, FaGitAlt, FaDocker, FaAws
 } from 'react-icons/fa';
 import {
   SiSpringboot, SiFlask, SiNextdotjs, SiTailwindcss,
-  SiTerraform, SiMysql, SiPostgresql, SiTypescript, SiFastapi
+  SiTerraform, SiMysql, SiPostgresql, SiTypescript, SiFastapi, SiRedis
 } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 
@@ -24,7 +24,6 @@ const techCategories = [
       { nome: 'Python', icone: <FaPython size={32} /> },
       { nome: 'Flask', icone: <SiFlask size={32} /> },
       { nome: 'FastAPI', icone: <SiFastapi size={32} /> },
-      { nome: 'Node.js', icone: <FaNodeJs size={32} /> },
       { nome: 'REST APIs', icone: <TbApi size={32} /> },
     ]
   },
@@ -47,6 +46,7 @@ const techCategories = [
       { nome: 'Git', icone: <FaGitAlt size={32} /> },
       { nome: 'MySQL', icone: <SiMysql size={32} /> },
       { nome: 'PostgreSQL', icone: <SiPostgresql size={32} /> },
+      { nome: 'Redis', icone: <SiRedis size={32} /> },
     ]
   }
 ];

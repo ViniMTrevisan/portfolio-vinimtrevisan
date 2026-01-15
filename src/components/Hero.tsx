@@ -55,7 +55,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            FULLSTACK
+            BACKEND
           </motion.h1>
 
           <motion.div
