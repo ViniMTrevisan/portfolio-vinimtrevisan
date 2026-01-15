@@ -11,7 +11,8 @@ const projectsData = [
     id: 'dayride',
     titleKey: 'p7_title',
     descKey: 'p7_desc',
-    technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
+    technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS', 'Redis',
+      'Supabase', 'Google Maps API', 'OAuth'],
     githubUrl: 'https://dayride.vercel.app/',
     year: 'Ongoing',
     featured: true
@@ -20,7 +21,7 @@ const projectsData = [
     id: 'zaptrack',
     titleKey: 'p5_title',
     descKey: 'p5_desc',
-    technologies: ['Next.js', 'Tailwind', 'PostgreSQL'],
+    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'PostgreSQL', 'Stripe', 'Redis', 'Supabase', 'Prisma ORM', 'JWT Auth'],
     githubUrl: 'https://zaptrack.app.br/',
     year: '2026',
     featured: true
