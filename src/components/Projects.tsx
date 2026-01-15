@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useTranslations } from 'next-intl';
-import { ArrowUpRight, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const projectsData = [
   {
@@ -74,10 +74,10 @@ const FeaturedProjectCard = ({ project, t, index }: { project: any, t: any, inde
       className="group relative border border-white/10 bg-gradient-to-br from-zinc-900/50 to-zinc-950/50 backdrop-blur-sm overflow-hidden rounded-lg hover:border-primary/50 transition-all duration-500"
     >
       {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
       {/* Shimmer Effect */}
-      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
 
       <div className="relative p-8 md:p-10 h-full flex flex-col justify-between min-h-[400px]">
         {/* Header */}
@@ -102,10 +102,10 @@ const FeaturedProjectCard = ({ project, t, index }: { project: any, t: any, inde
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="p-3 rounded-full bg-white/5 hover:bg-primary hover:scale-110 transition-all duration-300 group/btn"
+              className="relative z-10 p-3 rounded-full bg-white/5 hover:bg-primary hover:scale-110 transition-all duration-300 group/btn"
               aria-label={`Visit ${t(project.titleKey)}`}
             >
-              <ArrowUpRight size={20} className="text-zinc-400 group-hover/btn:text-black transition-colors" />
+              <ExternalLink size={20} className="text-zinc-400 group-hover/btn:text-black transition-colors" />
             </a>
           </div>
 

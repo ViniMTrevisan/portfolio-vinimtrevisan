@@ -67,7 +67,7 @@
     "p5_title": "ZapTrack",
     "p5_desc": "Fullstack app (Next.js/React) for managing links that don't convert on WhatsApp. It provides a dashboard to track and analyze the performance of the links. Focused on security, scalability, performance, and uses JWT Auth, Stripe, and PostgreSQL.",
     "p6_title": "Fabrica das Copias",
-    "p6_desc": "Landing page for a big printing company, focused on providing a new modern, tech-savvy, and user-friendly experience and visual for the company.",
+    "p6_desc": "Landing page for a big printing company, focused on providing a new modern, tech-savvy, user-friendly experience and visual for the company.",
     "p7_title": "DayRide",
     "p7_desc": "Comprehensive transportation management platform designed to simplify ride scheduling, route optimization, and passenger management. Features premium subscription management via Stripe, PWA support for native app-like experience, real-time tracking with Google Maps, login with OAuth and automated email notifications. Built with Next.js 16, TypeScript, PostgreSQL, and NextAuth.js.",
     "github_button": "View on GitHub"
