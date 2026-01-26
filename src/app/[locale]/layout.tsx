@@ -22,8 +22,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vinicius Trevisan | Creative Developer",
-  description: "Portfolio of Vinicius M. Trevisan - Combining technical expertise with editorial design.",
+  title: "Vinicius Trevisan | Backend Developer",
+  description: "Portfolio of Vinicius M. Trevisan - Combining technical expertise with editorial design and security protocols.",
   icons: {
     icon: '/favicon.ico',
   },

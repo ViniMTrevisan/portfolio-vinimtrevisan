@@ -6,7 +6,26 @@ import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useTranslations } from 'next-intl';
 import { ExternalLink } from 'lucide-react';
 
-const projectsData = [
+type Project = {
+  id: string;
+  titleKey: string;
+  descKey: string;
+  technologies: string[];
+  githubUrl: string;
+  year: string;
+  featured: boolean;
+};
+
+const projectsData: Project[] = [
+  {
+    id: 'kybernus',
+    titleKey: 'p8_title',
+    descKey: 'p8_desc',
+    technologies: ['TypeScript', 'Commander.js', 'Next.js', 'PostgreSQL', 'Prisma', 'Stripe', 'Redis', 'Docker', 'Terraform', 'Gemini AI'],
+    githubUrl: 'https://kybernus-cli.vercel.app/',
+    year: '2026',
+    featured: true
+  },
   {
     id: 'dayride',
     titleKey: 'p7_title',
@@ -14,7 +33,7 @@ const projectsData = [
     technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS', 'Redis',
       'Supabase', 'Google Maps API', 'OAuth'],
     githubUrl: 'https://dayride.vercel.app/',
-    year: 'Ongoing',
+    year: '2026',
     featured: true
   },
   {
@@ -42,7 +61,7 @@ const projectsData = [
     technologies: ['Java', 'Spring Boot', 'AWS', 'Docker', 'JWT Auth', 'MySQL'],
     githubUrl: 'https://github.com/ViniMTrevisan/spring-e-commerce',
     year: '2025',
-    featured: true
+    featured: false
   },
   {
     id: 'finance-app',
@@ -64,7 +83,7 @@ const projectsData = [
   }
 ];
 
-const FeaturedProjectCard = ({ project, t, index }: { project: any, t: any, index: number }) => {
+const FeaturedProjectCard = ({ project, t, index }: { project: Project, t: (key: string) => string, index: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -144,7 +163,7 @@ const FeaturedProjectCard = ({ project, t, index }: { project: any, t: any, inde
   );
 };
 
-const RegularProjectCard = ({ project, t, index }: { project: any, t: any, index: number }) => {
+const RegularProjectCard = ({ project, t, index }: { project: Project, t: (key: string) => string, index: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}

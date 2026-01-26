@@ -70,6 +70,8 @@
     "p6_desc": "Landing page para uma grande empresa de impressão, focada em fornecer uma experiência moderna, tecnológica e visual para a empresa.",
     "p7_title": "DayRide",
     "p7_desc": "Plataforma completa de gestão de transporte para simplificar agendamento de corridas, otimização de rotas e gerenciamento de passageiros. Oferece sistema de assinaturas premium via Stripe, suporte PWA para experiência mobile nativa, rastreamento em tempo real com Google Maps, login com OAuth e notificações por email automatizadas. Construído com Next.js 16, TypeScript, PostgreSQL e NextAuth.js.",
+    "p8_title": "Kybernus CLI",
+    "p8_desc": "A ferramenta definitiva de scaffolding de backend para desenvolvedores modernos. Gera projetos robustos e escaláveis com as melhores práticas da indústria. Suporta Node.js, Next.js, Java Spring Boot, NestJS e Python FastAPI com arquiteturas MVC, Clean e Hexagonal. Inclui scaffolding com Docker/Clean Architecture, documentação via IA (Gemini) e uma plataforma web completa (Next.js 16) para gestão de licenças e análise.",
     "github_button": "Ver no GitHub"
   },
   "Contact": {
