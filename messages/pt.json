@@ -39,12 +39,11 @@
     "job_title": "Estagiário de Engenharia de Software",
     "date": "Presente",
     "company": "Vivo (Telefônica Brasil)",
-    "li1": "Desenvolvimento de <strong>pipelines de automação em Python</strong> (Pandas) que zeraram o esforço manual na análise de backlogs e métricas de SLA.",
-    "li2": "Criação de soluções <strong>Full Stack de alta performance</strong> (Flask + Rust parsers) para processar relatórios operacionais complexos (~10k linhas) com mapeamento geográfico.",
-    "li3": "Engenharia de um <strong>pipeline ETL modular</strong> (500k registros/mês) com processamento via ODBC e <strong>troca atômica no SQL Server</strong>, garantindo 100% de confiabilidade nos dados.",
-    "li4": "Modernização do ecossistema de dados com <strong>Clean Architecture</strong>, unificando fontes Excel e SQL Server em uma API robusta com <strong>FastAPI</strong>.",
-    "li5": "Desenvolvimento de um <strong>Dashboard Estratégico</strong> (Next.js, Tailwind) adotado por diretores e gerentes para monitoramento de KPIs em escala nacional."
-  },
+    "li1": "Desenvolvimento de pipelines de automação em Python que reduziram o tempo de processamento diário de <strong>~20 min para <10 segundos (99% de redução)</strong>, eliminando <strong>100% dos erros manuais</strong> na análise de backlogs e KPIs operacionais.",
+    "li2": "Criação de soluções <strong>Python (FastAPI) e Next.js</strong> de alta performance para monitorar <strong>3 estados e 15+ clusters</strong>, utilizando <strong>parsers baseados em Rust</strong> que reduziram o tempo de carga em <strong>80%</strong> e garantem respostas de API em <strong><50ms</strong>.",
+    "li3": "Engenharia de um pipeline ETL modular processando <strong>500k+ registros/mês</strong> com estratégia de <strong>Zero Downtime</strong> (troca atômica de tabelas) no SQL Server, assegurando <strong>100% de confiabilidade</strong> nos dados de cotas.",
+    "li4": "Desenvolvimento de Dashboards Estratégicos (Next.js, FastAPI) centralizando dados de <strong>4 grandes parceiros</strong>, adotados por <strong>Diretores e Gerentes</strong> para tomada de decisão em operações B2B e B2C na Região Sul.",
+    "li5": "Modernização do ecossistema de dados implementando <strong>Clean Architecture</strong> e <strong>In-Memory Caching</strong>, unificando fontes de dados desconexas (Excel/SQL) em aplicações web modernas, escaláveis e de fácil manutenção."  },
   "Technologies": {
     "title": "Minha Stack de Tecnologias",
     "cat1_title": "Back-end",

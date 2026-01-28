@@ -39,11 +39,11 @@
     "job_title": "Software Engineer Intern",
     "date": "Present",
     "company": "Vivo (Telefônica Brasil)",
-    "li1": "Developed <strong>Python automation pipelines</strong> (Pandas) that eliminated manual effort in backlog analysis and SLA metrics processing.",
-    "li2": "Built <strong>high-performance Full Stack</strong> solutions (Flask + Rust parsers) to process complex operational reports (~10k rows) with geographic mapping.",
-    "li3": "Engineered a modular <strong>ETL pipeline</strong> (500k+ monthly records) with ODBC processing and <strong>atomic SQL Server swaps</strong>, ensuring 100% data reliability.",
-    "li4": "Modernized the data ecosystem using <strong>Clean Architecture</strong>, unifying Excel and SQL Server sources into a robust <strong>FastAPI</strong> backend.",
-    "li5": "Developed a <strong>Strategic Dashboard</strong> (Next.js, Tailwind) adopted by directors and managers for monitoring KPIs on a national scale."
+    "li1": "Developed Python automation pipelines that reduced daily processing time from <strong>~20 min to <10 seconds (99% reduction)</strong>, eliminating <strong>100% of manual errors</strong> in backlog analysis and operational KPIs.",
+    "li2": "Built high-performance solutions using <strong>Python (FastAPI) and Next.js</strong> monitoring <strong>3 states and 15+ clusters</strong>, utilizing <strong>Rust-based parsers</strong> that reduced load time by <strong>80%</strong> and ensure API responses in <strong><50ms</strong>.",
+    "li3": "Engineered a modular ETL pipeline processing <strong>500k+ records/month</strong> with a <strong>Zero Downtime</strong> strategy (atomic table swaps) on SQL Server, ensuring <strong>100% data reliability</strong> for quota data.",
+    "li4": "Developed Strategic Dashboards (Next.js, FastAPI) centralizing data from <strong>4 major partners</strong>, adopted by <strong>Directors and Managers</strong> for decision-making in B2B and B2C operations across the South Region.",
+    "li5": "Modernized the data ecosystem by implementing <strong>Clean Architecture</strong> and <strong>In-Memory Caching</strong>, unifying disconnected data sources (Excel/SQL) into modern, scalable, and maintainable web applications."
   },
   "Technologies": {
     "title": "My Tech Stack",
