@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] w-full flex-col justify-start overflow-hidden px-5 pb-12 pt-24 md:justify-center md:px-10 md:pb-16 md:pt-28"
+      className="relative flex min-h-[88svh] w-full flex-col justify-start md:min-h-[100svh] overflow-hidden px-5 pb-12 pt-24 md:justify-center md:px-10 md:pb-16 md:pt-28"
     >
       {/* Editorial grid + glow */}
       <div className="pointer-events-none absolute inset-0 z-0 grid-lines opacity-60" />
