@@ -2,311 +2,221 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import { ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { ExternalLink } from 'lucide-react';
+import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import SectionHeader from './SectionHeader';
+import { projects, Project } from '@/data/site';
 
-type Project = {
-  id: string;
-  titleKey: string;
-  descKey: string;
-  technologies: string[];
-  githubUrl: string;
-  year: string;
-  featured: boolean;
-};
+type Impact = { value: string; label: string };
 
-const projectsData: Project[] = [
-  {
-    id: 'kybernus',
-    titleKey: 'p8_title',
-    descKey: 'p8_desc',
-    technologies: ['TypeScript', 'Commander.js', 'Next.js', 'PostgreSQL', 'Prisma', 'Stripe', 'Redis', 'Docker', 'Terraform', 'Gemini AI'],
-    githubUrl: 'https://kybernus-cli.vercel.app/',
-    year: '2026',
-    featured: true
-  },
-  {
-    id: 'dayride',
-    titleKey: 'p7_title',
-    descKey: 'p7_desc',
-    technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS', 'Redis',
-      'Supabase', 'Google Maps API', 'OAuth'],
-    githubUrl: 'https://dayride.vercel.app/',
-    year: '2026',
-    featured: true
-  },
-  {
-    id: 'zaptrack',
-    titleKey: 'p5_title',
-    descKey: 'p5_desc',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind', 'PostgreSQL', 'Stripe', 'Redis', 'Supabase', 'Prisma ORM', 'JWT Auth', 'Docker'],
-    githubUrl: 'https://zaptrack.app.br/',
-    year: '2026',
-    featured: true
-  },
-  {
-    id: 'nex-solutions',
-    titleKey: 'p4_title',
-    descKey: 'p4_desc',
-    technologies: ['React', 'Framer', 'StartUp'],
-    githubUrl: 'https://www.solutionsbynex.com/',
-    year: 'Ongoing',
-    featured: true
-  },
-  {
-    id: 'E-Commerce API',
-    titleKey: 'p1_title',
-    descKey: 'p1_desc',
-    technologies: ['Java', 'Spring Boot', 'AWS', 'Docker', 'JWT Auth', 'MySQL'],
-    githubUrl: 'https://github.com/ViniMTrevisan/spring-e-commerce',
-    year: '2025',
-    featured: false
-  },
-  {
-    id: 'finance-app',
-    titleKey: 'p2_title',
-    descKey: 'p2_desc',
-    technologies: ['Java', 'React'],
-    githubUrl: 'https://app-financas-vinidev.vercel.app/',
-    year: '2025',
-    featured: false
-  },
-  {
-    id: 'fabrica-das-copias',
-    titleKey: 'p6_title',
-    descKey: 'p6_desc',
-    technologies: ['Typescript', 'Next.js'],
-    githubUrl: 'https://www.fabricadascopias.com.br/',
-    year: '2025',
-    featured: false
-  }
-];
-
-const FeaturedProjectCard = ({ project, t, index }: { project: Project, t: (key: string) => string, index: number }) => {
+function StackPills({ items }: { items: string[] }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="group relative border border-white/10 bg-gradient-to-br from-zinc-900/50 to-zinc-950/50 backdrop-blur-sm overflow-hidden rounded-lg hover:border-primary/50 transition-all duration-500"
-    >
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-      {/* Shimmer Effect */}
-      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
-
-      <div className="relative p-8 md:p-10 h-full flex flex-col justify-between min-h-[400px]">
-        {/* Header */}
-        <div className="space-y-4">
-          <div className="flex items-start justify-between">
-            <div className="space-y-2">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs text-primary uppercase tracking-widest">
-                  Featured
-                </span>
-                <span className="font-mono text-xs text-zinc-600">•</span>
-                <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">
-                  {project.year}
-                </span>
-              </div>
-              <h3 className="font-serif text-4xl md:text-5xl text-white font-bold group-hover:text-primary transition-colors duration-300">
-                {t(project.titleKey)}
-              </h3>
-            </div>
-
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="relative z-10 p-3 rounded-full bg-white/5 hover:bg-primary hover:scale-110 transition-all duration-300 group/btn"
-              aria-label={`Visit ${t(project.titleKey)}`}
-            >
-              <ExternalLink size={20} className="text-zinc-400 group-hover/btn:text-black transition-colors" />
-            </a>
-          </div>
-
-          <div className="h-[2px] w-24 bg-gradient-to-r from-primary to-transparent" />
-        </div>
-
-        {/* Description */}
-        <div className="space-y-6 flex-1 py-6">
-          <p className="font-mono text-sm md:text-base text-zinc-400 leading-relaxed">
-            {t(project.descKey)}
-          </p>
-
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech: string) => (
-              <span
-                key={tech}
-                className="px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-zinc-300 bg-white/5 border border-white/10 rounded-md hover:border-primary/50 hover:bg-white/10 transition-all duration-300"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Footer ID */}
-        <div className="font-mono text-xs text-zinc-700 uppercase tracking-widest pt-4 border-t border-white/5">
-          {project.id}
-        </div>
-      </div>
-
-      {/* Corner Accents */}
-      <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-white/5 group-hover:border-primary/30 transition-colors duration-500 rounded-tr-lg" />
-      <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-white/5 group-hover:border-primary/30 transition-colors duration-500 rounded-bl-lg" />
-    </motion.div>
+    <ul className="flex flex-wrap gap-1.5">
+      {items.map((tech) => (
+        <li
+          key={tech}
+          className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-zinc-400"
+        >
+          {tech}
+        </li>
+      ))}
+    </ul>
   );
-};
+}
 
-const RegularProjectCard = ({ project, t, index }: { project: Project, t: (key: string) => string, index: number }) => {
+function FeaturedRow({ project, index }: { project: Project; index: number }) {
+  const t = useTranslations('Work');
+  const impact = t.raw(`items.${project.key}.impact`) as Impact[];
+  const primaryLink = project.links[0];
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
+    <motion.article
+      initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="group relative border border-white/10 bg-zinc-900/30 backdrop-blur-sm overflow-hidden rounded-lg hover:border-primary/30 hover:bg-zinc-900/50 transition-all duration-500"
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative border-t border-white/10"
     >
-      <div className="p-6 md:p-7 h-full flex flex-col justify-between min-h-[280px]">
-        {/* Header */}
-        <div className="space-y-3">
-          <div className="flex items-start justify-between">
-            <span className="font-mono text-xs text-zinc-600 uppercase tracking-widest">
+      <div className="grid gap-6 py-9 md:grid-cols-12 md:gap-8 md:py-12">
+        <div className="md:col-span-1">
+          <span className="font-mono text-xs text-primary">{project.index}</span>
+        </div>
+
+        <div className="md:col-span-7">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-400">
+              {t(`roles.${project.roleKey}` as 'roles.role_fintech')}
+            </span>
+            <span className="h-1 w-1 rounded-full bg-zinc-700" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-400">
               {project.year}
             </span>
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="p-2 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 hover:bg-white hover:scale-110 transition-all duration-300 group/btn"
-              aria-label={`Visit ${t(project.titleKey)}`}
-            >
-              <ExternalLink size={16} className="text-zinc-400 group-hover/btn:text-black transition-colors" />
-            </a>
           </div>
 
-          <h3 className="font-serif text-2xl md:text-3xl text-white font-semibold group-hover:text-primary transition-colors duration-300">
-            {t(project.titleKey)}
+          <h3 className="mt-3 font-serif text-4xl font-bold leading-[0.95] tracking-[-0.03em] transition-colors duration-300 group-hover:text-primary md:text-6xl">
+            {project.name}
           </h3>
 
-          <div className="h-[1px] w-16 bg-gradient-to-r from-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+          <p className="mt-4 max-w-2xl font-mono text-sm leading-relaxed text-zinc-300 md:text-[15px]">
+            {t(`items.${project.key}.tagline` as 'items.vanguarda.tagline')}
+          </p>
+
+          <p className="mt-3 max-w-2xl font-mono text-xs leading-relaxed text-zinc-400 md:text-[13px]">
+            {t(`items.${project.key}.summary` as 'items.vanguarda.summary')}
+          </p>
+
+          <div className="mt-6">
+            <StackPills items={project.stack} />
+          </div>
         </div>
 
-        {/* Description */}
-        <p className="font-mono text-xs md:text-sm text-zinc-500 leading-relaxed line-clamp-3 my-4">
-          {t(project.descKey)}
-        </p>
+        <div className="flex flex-col justify-between gap-6 md:col-span-4 md:items-end md:text-right">
+          <div className="flex gap-8 md:flex-col md:gap-5">
+            {impact.map((stat) => (
+              <div key={stat.label}>
+                <div className="font-serif text-3xl font-bold leading-none text-primary md:text-4xl">
+                  {stat.value}
+                </div>
+                <p className="mt-1 max-w-[18ch] font-mono text-[10px] leading-snug text-zinc-400">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-1.5">
-          {project.technologies.map((tech: string) => (
-            <span
-              key={tech}
-              className="px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-zinc-500 border border-zinc-800 rounded-sm group-hover:text-zinc-400 group-hover:border-zinc-700 transition-colors duration-300"
+          {primaryLink ? (
+            <a
+              href={primaryLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 self-start rounded-full border border-white/15 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-300 transition-colors hover:border-primary hover:text-primary md:self-end"
             >
-              {tech}
+              {project.links.length > 1 ? project.links.map((l) => l.label).join(' · ') : primaryLink.label}
+              <ArrowUpRight size={14} />
+            </a>
+          ) : (
+            <span className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400 md:self-end">
+              {t('private')}
             </span>
-          ))}
+          )}
         </div>
       </div>
+
+      <span className="pointer-events-none absolute inset-y-0 -left-4 hidden w-1 origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100 md:block" />
+    </motion.article>
+  );
+}
+
+function OtherCard({ project, index }: { project: Project; index: number }) {
+  const t = useTranslations('Work');
+
+  const content = (
+    <>
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="font-serif text-2xl font-bold leading-tight transition-colors duration-300 group-hover:text-primary">
+          {project.name}
+        </h3>
+        <span className="mt-1 shrink-0 font-mono text-[10px] text-zinc-400">{project.index}</span>
+      </div>
+      <p className="mt-2 font-mono text-xs font-semibold text-zinc-300">
+        {t(`items.${project.key}.tagline` as 'items.vanguarda.tagline')}
+      </p>
+      <p className="mt-2 font-mono text-[11px] leading-relaxed text-zinc-400">
+        {t(`items.${project.key}.summary` as 'items.vanguarda.summary')}
+      </p>
+      <div className="mt-5 flex flex-wrap items-center gap-1.5">
+        {project.stack.slice(0, 4).map((tech) => (
+          <span
+            key={tech}
+            className="rounded border border-white/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-zinc-400"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </>
+  );
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+      className="group relative h-full rounded-xl border border-white/10 bg-surface/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-surface"
+    >
+      {project.links[0] ? (
+        <a
+          href={project.links[0].href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-full flex-col"
+        >
+          {content}
+          <span className="mt-5 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400 transition-colors group-hover:text-primary">
+            {t('visit')} <ArrowUpRight size={12} />
+          </span>
+        </a>
+      ) : (
+        <div className="flex h-full flex-col">{content}</div>
+      )}
     </motion.div>
   );
-};
+}
 
 export default function Projects() {
   const { setActiveSection } = useActiveSection();
-  const t = useTranslations('Projects');
+  const t = useTranslations('Work');
 
-  const featuredProjects = projectsData.filter(p => p.featured);
-  const regularProjects = projectsData.filter(p => !p.featured);
+  const featured = projects.filter((p) => p.featured);
+  const others = projects.filter((p) => !p.featured);
 
   return (
     <section
-      id="projects"
-      className="w-full py-24 md:py-32 px-6 md:px-12 relative bg-background"
-      onMouseEnter={() => setActiveSection('#projects')}
+      id="work"
+      className="relative w-full px-5 py-20 md:px-10 md:py-28"
+      onMouseEnter={() => setActiveSection('#work')}
     >
-      <div className="max-w-[1400px] mx-auto">
-        {/* Section Header */}
-        <motion.div
-          className="mb-20 space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="space-y-2">
-            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
-              {t('header_title_1')}
+      <div className="mx-auto max-w-[1400px]">
+        <SectionHeader
+          eyebrow={t('eyebrow')}
+          title={
+            <>
+              {t('title_1')}
               <br />
-              {t('header_title_2')}
-              <span className="text-primary">.</span>
-            </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
-          </div>
+              <span className="text-primary">{t('title_2')}</span>
+            </>
+          }
+          desc={t('desc')}
+        />
 
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <p className="font-mono text-sm md:text-base text-zinc-400 max-w-xl">
-              {t('header_desc')}
-            </p>
-            <span className="font-mono text-sm text-primary">
-              2025 — 2026
-            </span>
-          </div>
-        </motion.div>
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-px w-6 bg-zinc-700" />
+          <h3 className="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-400">
+            {t('featured_label')}
+          </h3>
+        </div>
 
-        {/* Featured Projects */}
-        {featuredProjects.length > 0 && (
-          <div className="mb-12 md:mb-16 space-y-6">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3"
-            >
-              <div className="h-[1px] w-8 bg-primary" />
-              <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500">
-                Destaques
-              </h3>
-            </motion.div>
+        <div className="mb-20 md:mb-28">
+          {featured.map((project, index) => (
+            <FeaturedRow key={project.id} project={project} index={index} />
+          ))}
+          <div className="border-t border-white/10" />
+        </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {featuredProjects.map((project, index) => (
-                <FeaturedProjectCard key={project.id} project={project} t={t} index={index} />
-              ))}
-            </div>
-          </div>
-        )}
+        <div className="mb-6 flex items-center gap-3">
+          <span className="h-px w-6 bg-zinc-700" />
+          <h3 className="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-400">
+            {t('other_label')}
+          </h3>
+        </div>
 
-        {/* Regular Projects */}
-        {regularProjects.length > 0 && (
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3"
-            >
-              <div className="h-[1px] w-8 bg-zinc-700" />
-              <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-600">
-                Outros Projetos
-              </h3>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-              {regularProjects.map((project, index) => (
-                <RegularProjectCard key={project.id} project={project} t={t} index={index + featuredProjects.length} />
-              ))}
-            </div>
-          </div>
-        )}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {others.map((project, index) => (
+            <OtherCard key={project.id} project={project} index={index} />
+          ))}
+        </div>
       </div>
     </section>
   );

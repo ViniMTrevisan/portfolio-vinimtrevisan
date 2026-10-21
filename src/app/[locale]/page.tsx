@@ -1,35 +1,41 @@
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience"; // 1. Importe o novo
-import Technologies from "@/components/Technologies";
+import Marquee from "@/components/Marquee";
 import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
+import Technologies from "@/components/Technologies";
+import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+
+const marqueeItems = [
+  "Java 21",
+  "Spring Boot",
+  "NestJS",
+  "TypeScript",
+  "Python",
+  "FastAPI",
+  "React",
+  "Next.js",
+  "PostgreSQL",
+  "Redis",
+  "RabbitMQ",
+  "AWS",
+  "Terraform",
+  "Docker",
+  "BigQuery",
+  "OpenAI",
+];
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      
-      <div id="about">
-        <About />
-      </div>
-
-      {/* 2. Adicione a nova seção aqui */}
-      <div id="experience">
-        <Experience />
-      </div>
-
-      <div id="technologies">
-        <Technologies />
-      </div>
-      <div id="projects">
-        <Projects />
-      </div>
-      <div id="contact">
-        <Contact />
-      </div>
-      
+      <Marquee items={marqueeItems} />
+      <Projects />
+      <Experience />
+      <Technologies />
+      <About />
+      <Contact />
       <Footer />
     </main>
   );

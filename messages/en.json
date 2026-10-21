@@ -1,91 +1,191 @@
 {
   "Navbar": {
-    "about": "About",
+    "work": "Work",
     "experience": "Experience",
-    "technologies": "Technologies",
-    "projects": "Projects",
-    "contact": "Contact"
+    "stack": "Stack",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "home": "Home"
   },
   "Hero": {
-    "title": "Full Stack Engineer",
-    "subtitle": "Java (SpringBoot) • Python (FastAPI) • Next.js • TypeScript • AWS • Docker",
-    "hero_description": "Building scalable, high-performance applications with <highlight>modern tech</highlight>.",
-    "details": "Specialized in building full-stack applications with high-performance code, focusing on user experience and security.",
-    "available_for_freelance": "Available for freelance",
-    "button_cv": "Download CV (English)",
-    "button_linkedin": "LinkedIn",
-    "button_github": "GitHub"
+    "available": "Open to new projects",
+    "eyebrow": "Software Engineer · Curitiba, Brazil",
+    "title_top": "Vinicius",
+    "title_bottom": "Trevisan",
+    "role": "Backend & full-stack engineer",
+    "tagline": "I build systems that survive production: consistency under contention, automated operations and products that actually ship.",
+    "cta_work": "See the work",
+    "cta_cv": "Download CV",
+    "cta_contact": "Get in touch",
+    "scroll": "scroll to explore",
+    "stat_speed": "reduction in processing time",
+    "stat_volume": "records per month through a zero-downtime ETL",
+    "stat_stars": "GitHub stars on Kybernus, used by 100+ devs",
+    "stat_deliveries": "documented deliveries at WOW"
   },
-  "About": {
-    "title": "My Journey",
-    "card1_title": "Philosophy and Focus",
-    "card1_li1": "Software Engineering student at <strong>PUCPR</strong>.",
-    "card1_li2": "Driven by the motto \"<strong>Learn something new every day!</strong>\", with a passion for creating scalable and innovative software solutions.",
-    "card1_li3": "Started my programming journey in 2022 with <strong>JavaScript</strong>, deepening my studies in <strong>Python</strong> in 2023.",
-    "card1_li4": "Currently focused on studying and developing innovative, scalable projects with <strong>Java (Spring Boot)</strong>, <strong>React</strong>, <strong>NextJS</strong>, <strong>Docker</strong>, <strong>Terraform</strong>, and <strong>AWS</strong>.",
-    "card2_title": "Resilience and Adaptation",
-    "card2_li1": "My mindset was forged in <strong>soccer</strong>, treating the sport (and programming) with dedication, resilience, and teamwork.",
-    "card2_li2": "I learned to face frustrations and <strong>never give up</strong>, a skill I apply daily when debugging code.",
-    "card2_li3": "Furthermore, my resilience and adaptability were tested during an exchange program in <strong>Utah, USA</strong>, overcoming adaptation challenges and winning a regional soccer championship.",
-    "card2_li4": "I consolidated my <strong>English fluency</strong> during this international experience.",
-    "card3_title": "Objectives",
-    "card3_li1": "Practical experience building robust full-stack applications like <strong>ZapTrack</strong> and <strong>E-commerce APIs</strong>, utilizing <strong>Java (Spring)</strong>, <strong>Next.js (TS)</strong>, <strong>Docker</strong>, and <strong>AWS</strong>.",
-    "card3_li2": "At <strong>Vivo</strong>, I engineer scalable data solutions using <strong>Python (FastAPI)</strong>, <strong>SQL Server</strong>, and complex <strong>ETL pipelines</strong> to solve critical business problems.",
-    "card3_li3": "Gain experience building secure, scalable, and helpful software that solves real-world problems, laying the foundation to grow my own company, <strong>Nex Solutions</strong>.",
-    "card3_li4": "Deliver innovation, dedication, and care in all solutions created."
+  "Work": {
+    "eyebrow": "02 — Selected work",
+    "title_1": "Systems",
+    "title_2": "in production.",
+    "desc": "Four projects where the hard decisions mattered more than the framework. Consistency, scale and product — with engineering evidence.",
+    "featured_label": "Case studies",
+    "other_label": "Other projects",
+    "visit": "Open",
+    "private": "Private product",
+    "roles": {
+      "role_fintech": "Fintech · Distributed systems",
+      "role_product": "Product · Full stack",
+      "role_ai": "Applied AI · Product",
+      "role_oss": "Open source · Dev tools",
+      "role_saas": "SaaS · Full stack",
+      "role_backend": "Backend · APIs",
+      "role_cloud": "Cloud · Architecture"
+    },
+    "items": {
+      "vanguarda": {
+        "tagline": "A core banking transfer service that never corrupts a balance.",
+        "summary": "Account-to-account transfers built around three invariants: idempotency on retry, consistency under contention and an auditable ledger. SERIALIZABLE transactions, deterministically ordered distributed locks and double-entry entries, provisioned with Terraform on AWS.",
+        "impact": [
+          { "value": "100", "label": "concurrent threads with no balance corruption" },
+          { "value": "56", "label": "automated tests running in CI" }
+        ]
+      },
+      "wow": {
+        "tagline": "A franchise network running on software we own.",
+        "summary": "Five production applications — NestJS APIs and Angular panels — covering POS, digitally signed contracts, Brazilian electronic invoicing (NFS-e), BigQuery BI and a complaints hub. I replaced Pipefy with a native workflow engine and documented 247 engineering deliveries along the way.",
+        "impact": [
+          { "value": "5", "label": "production applications" },
+          { "value": "247", "label": "documented deliveries" }
+        ]
+      },
+      "alyra": {
+        "tagline": "A finance and life app with an assistant that actually executes.",
+        "summary": "A React Native/Expo mobile product on a FastAPI backend. The assistant uses tool calling to operate the app in natural language: 55 tools, mandatory confirmation for destructive actions and a deterministic fallback path. Google/Apple sign-in, TOTP 2FA, RevenueCat subscriptions and Cloud Run delivery with canary releases and automatic rollback.",
+        "impact": [
+          { "value": "55", "label": "tools exposed to the assistant" },
+          { "value": "0", "label": "destructive actions without confirmation" }
+        ]
+      },
+      "kybernus": {
+        "tagline": "Open-source scaffolding for backends that matter.",
+        "summary": "A TypeScript CLI that generates NestJS, Express, Spring Boot, FastAPI and Next.js projects with clean, hexagonal or MVC architecture — plus Docker, Terraform, CI/CD and AI-generated docs. Published on npm and adopted by 100+ developers in its first month.",
+        "impact": [
+          { "value": "46", "label": "GitHub stars" },
+          { "value": "5", "label": "supported stacks" }
+        ]
+      },
+      "girix": {
+        "tagline": "Field sales force planning.",
+        "summary": "Segmentation, sizing and territory planning on a Python/OR-Tools engine, an offline-first PWA for reps and a before-vs-after projection in BRL."
+      },
+      "dayride": {
+        "tagline": "Transport and carpool management.",
+        "summary": "Google Maps routing, Stripe subscriptions, installable PWA and transactional email with Resend."
+      },
+      "trevi": {
+        "tagline": "Personal finance through a Telegram bot.",
+        "summary": "A receipt photo becomes a transaction: Gemini OCR and NLP, a React dashboard and Postgres."
+      },
+      "ecommerce": {
+        "tagline": "Spring Boot 3 e-commerce API.",
+        "summary": "Rotating refresh tokens in HttpOnly cookies, RBAC, Stripe webhooks and Docker deployment on AWS."
+      },
+      "graviq": {
+        "tagline": "An agency's back office.",
+        "summary": "CRM, projects, finance and DOCX/PDF contract generation with row-level security across every Supabase table."
+      },
+      "veterano": {
+        "tagline": "Mentorship between senior students and freshmen.",
+        "summary": "Azure microfrontends with a Kong API gateway, a BFF and services on Container Apps."
+      }
+    }
   },
   "Experience": {
-    "title": "Work Experience",
-    "job_title": "Software Engineer Intern",
-    "date": "Present",
-    "company": "Vivo (Telefônica Brasil)",
-    "li1": "Developed Python automation pipelines that reduced daily processing time from <strong>~20 min to <10 seconds (99% reduction)</strong>, eliminating <strong>100% of manual errors</strong> in backlog analysis and operational KPIs.",
-    "li2": "Built high-performance solutions using <strong>Python (FastAPI) and Next.js</strong> monitoring <strong>3 states and 15+ clusters</strong>, utilizing <strong>Rust-based parsers</strong> that reduced load time by <strong>80%</strong> and ensure API responses in <strong><50ms</strong>.",
-    "li3": "Engineered a modular ETL pipeline processing <strong>500k+ records/month</strong> with a <strong>Zero Downtime</strong> strategy (atomic table swaps) on SQL Server, ensuring <strong>100% data reliability</strong> for quota data.",
-    "li4": "Developed Strategic Dashboards (Next.js, FastAPI) centralizing data from <strong>4 major partners</strong>, adopted by <strong>Directors and Managers</strong> for decision-making in B2B and B2C operations across the South Region.",
-    "li5": "Modernized the data ecosystem by implementing <strong>Clean Architecture</strong> and <strong>In-Memory Caching</strong>, unifying disconnected data sources (Excel/SQL) into modern, scalable, and maintainable web applications."
+    "eyebrow": "03 — Experience",
+    "title_1": "Where I",
+    "title_2": "learned it.",
+    "current": "Current",
+    "items": {
+      "wow": {
+        "summary": "Owning the full lifecycle of a monorepo with 5 applications that run a franchise network: POS, customer area, management panel and APIs.",
+        "bullets": [
+          "Delivered NFS-e invoicing end to end — RPS, per-CNPJ certificates, ledger and automatic provisioning — removing manual fiscal work.",
+          "Replaced Pipefy with an in-house workflow engine (pipes, forms, automations and permissions) while keeping operational parity with the legacy tool.",
+          "Built BigQuery BI dashboards used by the board: funnel, cash flow, ticket SLA, ratings and complaints.",
+          "Shipped an AI assistant with tool calling, RAG over Notion and a white-label console inside the product."
+        ]
+      },
+      "vivo": {
+        "summary": "Automation and data for B2B and B2C operations across southern Brazil.",
+        "bullets": [
+          "Python pipelines cut daily backlog processing from ~20 min to under 10 s, with zero manual errors.",
+          "Strategic Next.js + FastAPI dashboard with Rust parsers, adopted by directors and managers at 4 major partners.",
+          "Modular ETL handling 500k+ records per month with atomic table swaps on SQL Server: zero downtime and 100% reliability."
+        ]
+      },
+      "nex": {
+        "summary": "Bespoke software for small businesses: websites, automations and AI integrations.",
+        "bullets": [
+          "Rebrand and high-conversion landing page for Fábrica das Cópias.",
+          "AI agent automations for sales, prospecting and operational tasks."
+        ]
+      }
+    }
   },
-  "Technologies": {
-    "title": "My Tech Stack",
-    "cat1_title": "Back-end",
-    "cat2_title": "Front-end",
-    "cat3_title": "DevOps, Tools & Others"
+  "Stack": {
+    "eyebrow": "04 — Stack",
+    "title_1": "Tools",
+    "title_2": "I actually use.",
+    "desc": "No logo wall. Everything here has been to production.",
+    "groups": {
+      "backend": "Back-end",
+      "data": "Data & messaging",
+      "frontend": "Front-end & mobile",
+      "infra": "Infra & cloud",
+      "ai": "Applied AI",
+      "craft": "Engineering"
+    }
   },
-  "Projects": {
-    "title": "Projects",
-    "header_title_1": "SELECTED",
-    "header_title_2": "WORKS",
-    "header_desc": "A collection of digital experiences, applications, and experiments.",
-    "p1_title": "E-commerce API (Spring Boot & DevOps)",
-    "p1_desc": "Complete RESTful API with microservices, Spring Security, and AWS deploy with Docker.",
-    "p2_title": "Personal Finance App (Fullstack)",
-    "p2_desc": "Fullstack application with Spring Boot back-end and React front-end for financial management. Backend is turned off due to AWS costs.",
-    "p3_title": "Beach House Scheduler (Fullstack)",
-    "p3_desc": "Fullstack app (Node.js/React) for scheduling, with full CRUD, JWT authentication, and PostgreSQL DB.",
-    "p4_title": "Nex Solutions",
-    "p4_desc": "Web development Startup, focused on providing modern, scalable, and innovative solutions for companies with available prices and a great user experience.",
-    "p5_title": "ZapTrack",
-    "p5_desc": "Fullstack app (Next.js/React) for managing links that don't convert on WhatsApp. It provides a dashboard to track and analyze the performance of the links. Focused on security, scalability, performance, and uses JWT Auth, Stripe, and PostgreSQL.",
-    "p6_title": "Fabrica das Copias",
-    "p6_desc": "Landing page for a big printing company, focused on providing a new modern, tech-savvy, user-friendly experience and visual for the company.",
-    "p7_title": "DayRide",
-    "p7_desc": "Comprehensive transportation management platform designed to simplify ride scheduling, route optimization, and passenger management. Features premium subscription management via Stripe, PWA support for native app-like experience, real-time tracking with Google Maps, login with OAuth and automated email notifications. Built with Next.js 16, TypeScript, PostgreSQL, and NextAuth.js.",
-    "p8_title": "Kybernus CLI",
-    "p8_desc": "The Ultimate Backend Scaffolding Tool for Modern Developers. Generates robust, scalable backend projects with industry best practices built-in. Supports Node.js, Next.js, Java Spring Boot, NestJS, and Python FastAPI with MVC, Clean, and Hexagonal architectures. Features include Docker/clean-arch scaffolding, AI-powered documentation via Gemini, and a full web platform for license management (Next.js 16) and analytics.",
-    "github_button": "View on GitHub"
+  "About": {
+    "eyebrow": "05 — About",
+    "title_1": "Curious about",
+    "title_2": "building.",
+    "p1": "I'm a software engineer based in Curitiba, studying Software Engineering at PUCPR. I started in 2022 with JavaScript, moved through Python, Java and TypeScript, and today I care about the problems that don't fit in a tutorial: concurrency, money and data that cannot be wrong.",
+    "p2": "My relationship with software comes from football: repeated practice, reading the game and the stubbornness to not let a bug go. I spent a year in Utah, USA, where I became fluent in English and won a regional championship — and learned to adapt fast when the plan changes.",
+    "p3": "Outside work I train, read about distributed systems and maintain open-source projects. The goal is simple: build software that solves a real problem and still holds up the next day.",
+    "photo_alt": "Vinicius Trevisan in Curitiba",
+    "photo_caption": "Curitiba · 2026",
+    "facts_title": "In a line",
+    "facts": [
+      { "label": "Based in", "value": "Curitiba, Brazil" },
+      { "label": "Education", "value": "Software Eng. · PUCPR · 2028" },
+      { "label": "Languages", "value": "Portuguese · Fluent English" },
+      { "label": "Focus", "value": "Backend, data and product" }
+    ],
+    "principles_title": "How I work",
+    "principles": [
+      { "title": "Evidence over opinion", "desc": "Tests, metrics and logs. If I can't prove it, it isn't done." },
+      { "title": "Simple until it hurts", "desc": "The best abstraction is the one I didn't have to write." },
+      { "title": "Own the problem", "desc": "From schema to deploy. I don't push the bug to the next layer." }
+    ]
   },
   "Contact": {
-    "title": "Contact",
-    "subtitle": "Have a project in mind or an opportunity? Send me a message.",
-    "label_name": "Your name",
-    "placeholder_name": "Vinicius Trevisan",
-    "label_email": "Your email",
-    "placeholder_email": "example@gmail.com",
-    "label_message": "Your message",
-    "placeholder_message": "Hello, Vinicius! I have a project...",
-    "button_submit": "Send Message"
+    "eyebrow": "06 — Contact",
+    "title_1": "Let's",
+    "title_2": "build.",
+    "desc": "Open to full-time roles, freelance work and good conversations about distributed systems, product and applied AI.",
+    "email_label": "Email",
+    "linkedin_label": "LinkedIn",
+    "github_label": "GitHub",
+    "copy": "Copy",
+    "copied": "Copied",
+    "availability": "I reply within 24h"
   },
   "Footer": {
-    "copyright": "© {year} Vinicius Meier Trevisan."
+    "tagline": "Built with Next.js, TypeScript and stubbornness.",
+    "rights": "© {year} Vinicius Meier Trevisan",
+    "back_top": "Back to top"
   }
 }

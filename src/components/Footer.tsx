@@ -1,64 +1,40 @@
-"use client"; // Obrigatório para animações
+"use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { ArrowUp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useLenis } from './LenisProvider';
 
 export default function Footer() {
   const t = useTranslations('Footer');
+  const lenis = useLenis();
+
   return (
-    <motion.footer 
-      className="w-full max-w-6xl mx-auto py-12 px-6 border-t border-zinc-200 dark:border-zinc-700"
-      
-      // Animação de entrada
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }} 
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-    >
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-        
-        {/* Email */}
-        <div className="text-zinc-600 dark:text-zinc-400 text-center md:text-left">
-          <a 
-            href="mailto:vinimtrevisan@gmail.com" 
-            className="flex items-center gap-2 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
-          >
-            <FaEnvelope />
-            vinimtrevisan@gmail.com
-          </a>
+    <footer className="w-full border-t border-white/10 px-5 py-10 md:px-10">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="font-serif text-2xl font-bold text-foreground">
+            Vinicius Trevisan<span className="text-primary">.</span>
+          </p>
+          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400">
+            {t('tagline')}
+          </p>
         </div>
 
-        {/* Links Sociais (Ícones) */}
-        <div className="flex gap-6">
-          <a 
-            href="https://www.linkedin.com/in/vinicius-meier-trevisan-741b66329/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-zinc-600 dark:text-zinc-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
+        <div className="flex items-center justify-between gap-6 md:justify-end">
+          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-zinc-400">
+            {t('rights', { year: new Date().getFullYear() })}
+          </p>
+          <button
+            onClick={() => lenis?.scrollTo('#home', { offset: -8 })}
+            aria-label={t('back_top')}
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-zinc-400 transition-colors hover:border-primary hover:text-primary"
           >
-            <FaLinkedin size={24} />
-          </a>
-          <a 
-            href="https://github.com/ViniMTrevisan" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-zinc-600 dark:text-zinc-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
-          >
-            <FaGithub size={24} />
-          </a>
+            <ArrowUp size={13} />
+            <span className="hidden sm:inline">{t('back_top')}</span>
+          </button>
         </div>
-
       </div>
-
-      {/* Copyright */}
-      <div className="text-center text-zinc-500 text-sm mt-8">
-        {t("copyright", { year: new Date().getFullYear() })}
-      </div>
-
-    </motion.footer>
+    </footer>
   );
 }

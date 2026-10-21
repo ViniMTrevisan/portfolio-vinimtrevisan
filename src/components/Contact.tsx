@@ -1,114 +1,138 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import { ArrowUpRight, Check, Copy, Github, Linkedin, Mail } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Send, Mail, User, MessageSquare } from 'lucide-react';
+import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import SectionHeader from './SectionHeader';
+import { socials } from '@/data/site';
 
 export default function Contact() {
   const { setActiveSection } = useActiveSection();
   const t = useTranslations('Contact');
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(socials.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  const channels = [
+    {
+      id: 'email',
+      label: t('email_label'),
+      value: socials.email,
+      href: `mailto:${socials.email}`,
+      icon: Mail,
+      external: false,
+    },
+    {
+      id: 'linkedin',
+      label: t('linkedin_label'),
+      value: 'in/vinicius-meier-trevisan',
+      href: socials.linkedin,
+      icon: Linkedin,
+      external: true,
+    },
+    {
+      id: 'github',
+      label: t('github_label'),
+      value: 'ViniMTrevisan',
+      href: socials.github,
+      icon: Github,
+      external: true,
+    },
+  ];
 
   return (
     <section
       id="contact"
-      className="w-full py-24 md:py-32 px-6 md:px-12 relative overflow-hidden"
+      className="relative w-full overflow-hidden border-t border-white/10 bg-surface px-5 py-20 md:px-10 md:py-28"
       onMouseEnter={() => setActiveSection('#contact')}
     >
-      {/* Background Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-primary/10 blur-[100px] rounded-full -z-10" />
+      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-[150px]" />
 
-      <div className="max-w-[1400px] mx-auto">
-        {/* Section Header - Following Projects style */}
-        <motion.div
-          className="mb-12 space-y-6 max-w-xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="space-y-2">
-            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
-              {t("title")}<span className="text-primary">.</span>
-            </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
-          </div>
-          <p className="text-zinc-400 text-sm md:text-base">{t("subtitle")}</p>
-        </motion.div>
+      <div className="relative mx-auto max-w-[1400px]">
+        <SectionHeader
+          eyebrow={t('eyebrow')}
+          title={
+            <>
+              {t('title_1')} <span className="text-primary">{t('title_2')}</span>
+            </>
+          }
+          desc={t('desc')}
+        />
 
-        <motion.form
-          action={process.env.NEXT_PUBLIC_FORMSPREE_ID}
-          method="POST"
-          className="space-y-6 bg-card backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="space-y-2">
-            <label htmlFor="name" className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-              <User size={16} className="text-primary" /> {t("label_name")}
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              minLength={2}
-              maxLength={100}
-              className="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10
-                         text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent
-                         transition-all duration-300"
-              placeholder={t("placeholder_name")}
-            />
+        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-7">
+            <a
+              href={`mailto:${socials.email}`}
+              className="group inline-block max-w-full"
+            >
+              <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-400">
+                {t('email_label')}
+              </span>
+              <span className="mt-2 block break-all font-serif text-[clamp(1.6rem,5.2vw,3.6rem)] font-bold leading-none tracking-[-0.03em] text-foreground transition-colors duration-300 group-hover:text-primary">
+                {socials.email}
+              </span>
+            </a>
+
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <button
+                onClick={copyEmail}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-300 transition-colors hover:border-primary hover:text-primary"
+              >
+                {copied ? <Check size={13} className="text-primary" /> : <Copy size={13} />}
+                {copied ? t('copied') : t('copy')}
+              </button>
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                {t('availability')}
+              </span>
+            </div>
           </div>
 
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-              <Mail size={16} className="text-primary" /> {t("label_email")}
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10
-                         text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent
-                         transition-all duration-300"
-              placeholder={t("placeholder_email")}
-            />
+          <div className="md:col-span-5">
+            <div className="grid gap-3">
+              {channels.map((channel, index) => {
+                const Icon = channel.icon;
+                return (
+                  <motion.a
+                    key={channel.id}
+                    href={channel.href}
+                    target={channel.external ? '_blank' : undefined}
+                    rel={channel.external ? 'noopener noreferrer' : undefined}
+                    initial={{ opacity: 0, x: 16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.07 }}
+                    className="group flex items-center justify-between rounded-lg border border-white/10 bg-background/60 px-5 py-4 transition-all duration-300 hover:border-primary/40 hover:bg-background"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Icon size={16} className="text-primary" />
+                      <div>
+                        <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-zinc-400">
+                          {channel.label}
+                        </p>
+                        <p className="font-mono text-xs text-zinc-300">{channel.value}</p>
+                      </div>
+                    </div>
+                    <ArrowUpRight
+                      size={16}
+                      className="text-zinc-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
+                    />
+                  </motion.a>
+                );
+              })}
+            </div>
           </div>
-
-          <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium text-zinc-300 flex items-center gap-2">
-              <MessageSquare size={16} className="text-primary" /> {t("label_message")}
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows={5}
-              minLength={10}
-              className="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10
-                         text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent
-                         transition-all duration-300 resize-none"
-              placeholder={t("placeholder_message")}
-            ></textarea>
-          </div>
-
-          <input type="text" name="_gotcha" style={{ display: 'none' }} />
-
-          <button
-            type="submit"
-            className="w-full py-4 px-6 rounded-xl font-bold text-black
-                       bg-primary hover:bg-primary/90 hover:scale-[1.02] transition-all duration-300
-                       shadow-[0_0_20px_rgba(6,182,212,0.3)] flex items-center justify-center gap-2 group"
-          >
-            {t("button_submit")}
-            <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
-        </motion.form>
+        </div>
       </div>
     </section>
   );

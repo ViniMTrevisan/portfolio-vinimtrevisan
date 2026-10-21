@@ -1,112 +1,91 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Briefcase } from 'lucide-react';
-
-const ExperienceCard = ({ index, children }: { index: number, children: React.ReactNode }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, delay: index * 0.2 }}
-      className={`relative pl-8 md:pl-0 w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right md:ml-0' : 'md:pl-12 md:ml-auto'}`}
-    >
-      <div className="bg-card backdrop-blur-md border border-white/10 p-8 rounded-2xl shadow-xl hover:shadow-primary/10 transition-shadow duration-300 group">
-        {children}
-
-        {/* Connector Dot */}
-        <div className={`absolute top-8 w-4 h-4 rounded-full bg-primary border-4 border-background z-20 
-                          ${index % 2 === 0 ? '-right-[58px] left-auto' : '-left-[58px]'}
-                          hidden md:block group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_var(--color-primary)]`} />
-
-        {/* Mobile Connector Dot */}
-        <div className="absolute top-8 left-[-9px] w-4 h-4 rounded-full bg-primary border-4 border-background z-20 md:hidden block shadow-[0_0_10px_var(--color-primary)]" />
-      </div>
-    </motion.div>
-  );
-};
+import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import SectionHeader from './SectionHeader';
+import { experiences } from '@/data/site';
 
 export default function Experience() {
   const { setActiveSection } = useActiveSection();
   const t = useTranslations('Experience');
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section
       id="experience"
-      ref={containerRef}
-      className="w-full py-24 md:py-32 px-6 md:px-12 relative overflow-hidden bg-background"
+      className="relative w-full border-y border-white/10 bg-surface px-5 py-20 md:px-10 md:py-28"
       onMouseEnter={() => setActiveSection('#experience')}
     >
-      <div className="max-w-[1400px] mx-auto relative z-10">
-        {/* Section Header - Following Projects style */}
-        <motion.div
-          className="mb-20 space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="space-y-2">
-            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
-              {t("title")}<span className="text-primary">.</span>
-            </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
-          </div>
-        </motion.div>
+      <div className="mx-auto max-w-[1400px]">
+        <SectionHeader
+          eyebrow={t('eyebrow')}
+          title={
+            <>
+              {t('title_1')}
+              <br />
+              <span className="text-primary">{t('title_2')}</span>
+            </>
+          }
+        />
 
-        <div className="relative">
-          {/* Center Line (Desktop) */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-zinc-800 hidden md:block">
-            <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-primary via-secondary to-primary" />
-          </div>
+        <div>
+          {experiences.map((job, index) => {
+            const bullets = t.raw(`items.${job.id}.bullets`) as string[];
 
-          {/* Left Line (Mobile) */}
-          <div className="absolute left-0 w-0.5 h-full bg-zinc-800 md:hidden block">
-            <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-primary via-secondary to-primary" />
-          </div>
-
-          <div className="space-y-12">
-            {/* Since we only have one dynamic job in translation currently, we map it manually 
-                   In a real scenario we'd map an array, but here we construct the card directly from `t`
-               */}
-
-            <ExperienceCard index={0}>
-              <div className="flex flex-col gap-2">
-                <span className="text-primary font-mono text-sm tracking-widest uppercase">{t("date")}</span>
-                <h3 className="text-2xl font-bold text-white mb-1">{t("job_title")}</h3>
-                <h4 className="text-lg font-medium text-zinc-400 flex items-center gap-2 md:justify-end md:flex-row-reverse">
-                  <Briefcase size={16} />
-                  {t("company")}
-                </h4>
-
-                <ul className="mt-6 space-y-3 text-zinc-300 text-sm leading-relaxed text-left">
-                  {[1, 2, 3, 4, 5].map(num => (
-                    <li key={num} className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0" />
-                      <span>
-                        {t.rich(`li${num}`, {
-                          strong: (chunks) => <strong className="text-white font-semibold">{chunks}</strong>,
-                          highlight: (chunks) => <span className="text-primary font-semibold">{chunks}</span>
-                        })}
+            return (
+              <motion.article
+                key={job.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.55, delay: index * 0.06 }}
+                className="grid gap-6 border-t border-white/10 py-10 md:grid-cols-12 md:gap-8 md:py-12"
+              >
+                <div className="md:col-span-4">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
+                      {job.company}
+                    </h3>
+                    {job.current && (
+                      <span className="rounded-full bg-primary/15 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.16em] text-primary">
+                        {t('current')}
                       </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ExperienceCard>
+                    )}
+                  </div>
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-zinc-400">
+                    {job.period} · {job.location}
+                  </p>
+                  <p className="mt-4 font-mono text-xs text-zinc-400">{job.role}</p>
+                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                    {job.stack.map((tech) => (
+                      <li
+                        key={tech}
+                        className="rounded border border-white/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-zinc-400"
+                      >
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-          </div>
+                <div className="md:col-span-8">
+                  <p className="font-mono text-sm leading-relaxed text-zinc-300 md:text-[15px]">
+                    {t(`items.${job.id}.summary` as 'items.wow.summary')}
+                  </p>
+                  <ul className="mt-6 space-y-3">
+                    {bullets.map((bullet) => (
+                      <li key={bullet} className="flex gap-3 font-mono text-xs leading-relaxed text-zinc-400 md:text-[13px]">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.article>
+            );
+          })}
+          <div className="border-t border-white/10" />
         </div>
       </div>
     </section>

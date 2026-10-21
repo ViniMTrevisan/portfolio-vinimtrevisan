@@ -1,137 +1,114 @@
 "use client";
 
 import React from 'react';
-import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
-import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Cpu, Target, Zap } from 'lucide-react';
+import { useActiveSection } from '@/contexts/ActiveSectionContext';
+import SectionHeader from './SectionHeader';
 
-const AboutCard = ({ title, items, icon: Icon, delay }: { title: string, items: React.ReactNode[], icon: any, delay: number }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseX = useSpring(x, { stiffness: 500, damping: 100 });
-  const mouseY = useSpring(y, { stiffness: 500, damping: 100 });
-
-  function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    x.set(clientX - left);
-    y.set(clientY - top);
-  }
-
-  const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
-  const style = { maskImage, WebkitMaskImage: maskImage };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.5 }}
-      onMouseMove={onMouseMove}
-      className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md group hover:border-primary/50 transition-colors duration-500 h-full"
-    >
-      {/* Spotlight Effect */}
-      <div className="pointer-events-none absolute inset-0 z-0 transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
-      <motion.div
-        className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-primary/10 via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"
-        style={style}
-      />
-
-      <div className="relative z-20 p-8 flex flex-col h-full">
-        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300 border border-white/5 shadow-lg shadow-primary/5">
-          <Icon size={28} />
-        </div>
-
-        <h3 className="text-xl font-bold mb-6 text-white group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h3>
-
-        <ul className="space-y-4 flex-grow">
-          {items.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-3 text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-purple-500 flex-shrink-0" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  );
-};
+type Fact = { label: string; value: string };
+type Principle = { title: string; desc: string };
 
 export default function About() {
   const { setActiveSection } = useActiveSection();
   const t = useTranslations('About');
-
-  const richTextConfig = {
-    highlight: (chunks: React.ReactNode) => <span className="text-primary font-semibold">{chunks}</span>,
-    strong: (chunks: React.ReactNode) => <strong className="text-white font-semibold">{chunks}</strong>
-  };
-
-  const card1Items = [
-    t.rich("card1_li1", richTextConfig),
-    t.rich("card1_li2", richTextConfig),
-    t.rich("card1_li3", richTextConfig),
-    t.rich("card1_li4", richTextConfig)
-  ];
-
-  const card2Items = [
-    t.rich("card2_li1", richTextConfig),
-    t.rich("card2_li2", richTextConfig),
-    t.rich("card2_li3", richTextConfig),
-    t.rich("card2_li4", richTextConfig)
-  ];
-
-  const card3Items = [
-    t.rich("card3_li1", richTextConfig),
-    t.rich("card3_li2", richTextConfig),
-    t.rich("card3_li3", richTextConfig),
-    t.rich("card3_li4", richTextConfig)
-  ];
+  const facts = t.raw('facts') as Fact[];
+  const principles = t.raw('principles') as Principle[];
 
   return (
     <section
       id="about"
-      className="w-full py-24 md:py-32 px-6 md:px-12 relative bg-background"
+      className="relative w-full px-5 py-20 md:px-10 md:py-28"
       onMouseEnter={() => setActiveSection('#about')}
     >
-      <div className="max-w-[1400px] mx-auto">
-        {/* Section Header - Following Projects style */}
-        <motion.div
-          className="mb-20 space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="space-y-2">
-            <h2 className="text-6xl md:text-8xl font-serif font-bold text-white tracking-tighter leading-none">
-              {t("title")}<span className="text-primary">.</span>
-            </h2>
-            <div className="h-1 w-32 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
-          </div>
-        </motion.div>
+      <div className="mx-auto max-w-[1400px]">
+        <SectionHeader
+          eyebrow={t('eyebrow')}
+          title={
+            <>
+              {t('title_1')} <span className="text-primary">{t('title_2')}</span>
+            </>
+          }
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          <AboutCard
-            title={t("card1_title")}
-            items={card1Items}
-            icon={Zap}
-            delay={0}
-          />
-          <AboutCard
-            title={t("card2_title")}
-            items={card2Items}
-            icon={Target}
-            delay={0.2}
-          />
-          <AboutCard
-            title={t("card3_title")}
-            items={card3Items}
-            icon={Cpu}
-            delay={0.4}
-          />
+        <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-5"
+          >
+            <div className="group relative">
+              <div className="absolute -left-3 -top-3 h-full w-full border border-primary/30" aria-hidden="true" />
+              <div className="relative overflow-hidden">
+                <Image
+                  src="/foto_principal.jpeg"
+                  alt={t('photo_alt')}
+                  width={1200}
+                  height={1600}
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="h-full w-full object-cover grayscale contrast-[1.08] transition-all duration-700 group-hover:grayscale-0 group-hover:contrast-100"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {t('photo_caption')}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="md:col-span-7">
+            <div className="space-y-5 font-mono text-sm leading-relaxed text-zinc-300 md:text-[15px]">
+              <p>{t('p1')}</p>
+              <p className="text-zinc-400">{t('p2')}</p>
+              <p className="text-zinc-400">{t('p3')}</p>
+            </div>
+
+            <div className="mt-10">
+              <h3 className="mb-4 font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-400">
+                {t('facts_title')}
+              </h3>
+              <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 sm:grid-cols-2">
+                {facts.map((fact) => (
+                  <div key={fact.label} className="bg-background p-4">
+                    <dt className="font-mono text-[9px] uppercase tracking-[0.18em] text-zinc-400">
+                      {fact.label}
+                    </dt>
+                    <dd className="mt-1 font-mono text-xs text-zinc-200">{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 md:mt-24">
+          <h3 className="mb-6 font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-400">
+            {t('principles_title')}
+          </h3>
+          <div className="grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 md:grid-cols-3">
+            {principles.map((principle, index) => (
+              <motion.div
+                key={principle.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                className="bg-background p-6 md:p-8"
+              >
+                <span className="font-mono text-[10px] text-primary">0{index + 1}</span>
+                <h4 className="mt-3 font-serif text-xl font-bold text-foreground">
+                  {principle.title}
+                </h4>
+                <p className="mt-2 font-mono text-xs leading-relaxed text-zinc-400">
+                  {principle.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
