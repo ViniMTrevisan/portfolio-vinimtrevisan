@@ -29,7 +29,7 @@
     "eyebrow": "02 — Trabalhos selecionados",
     "title_1": "Sistemas",
     "title_2": "em produção.",
-    "desc": "Quatro projetos onde as decisões difíceis importaram mais que o framework. Consistência, escala e produto — com evidência de engenharia.",
+    "desc": "Três projetos onde as decisões difíceis importaram mais que o framework. Consistência, escala e produto — com evidência de engenharia.",
     "featured_label": "Estudos de caso",
     "other_label": "Outros projetos",
     "visit": "Abrir",
@@ -48,37 +48,35 @@
         "tagline": "Um core bancário de transferências que não corrompe saldo.",
         "summary": "Serviço de transferência entre contas construído em volta de três invariantes: idempotência em retry, consistência sob concorrência e rastreabilidade contábil. Transações SERIALIZABLE, locks com ordenação determinística e ledger de partidas dobradas, provisionado com Terraform na AWS.",
         "impact": [
-          { "value": "100", "label": "threads concorrentes sem corrupção de saldo" },
-          { "value": "56", "label": "testes automatizados rodando no CI" }
-        ]
-      },
-      "wow": {
-        "tagline": "A operação de uma rede de franquias rodando em software próprio.",
-        "summary": "Cinco aplicações em produção — APIs NestJS e painéis Angular — cobrindo PDV, contratos com assinatura digital, emissão de NFS-e, BI sobre BigQuery e uma central de reclamações. Substituí o Pipefy por um motor de workflows nativo e documentei 247 entregas de engenharia no caminho.",
-        "impact": [
-          { "value": "5", "label": "aplicações em produção" },
-          { "value": "247", "label": "entregas documentadas" }
+          {
+            "value": "100",
+            "label": "threads concorrentes sem corrupção de saldo"
+          }
         ]
       },
       "alyra": {
         "tagline": "Um app de finanças e rotina com um assistente que realmente executa.",
         "summary": "Produto mobile em React Native/Expo com backend FastAPI. O assistente usa tool calling para operar o app em linguagem natural: 55 ferramentas, confirmação obrigatória em ações destrutivas e fallback determinístico. Login Google/Apple, 2FA TOTP, assinaturas RevenueCat e deploy em Cloud Run com canary e rollback automático.",
         "impact": [
-          { "value": "55", "label": "ferramentas expostas ao assistente" },
-          { "value": "0", "label": "ações destrutivas sem confirmação" }
+          {
+            "value": "55",
+            "label": "ferramentas expostas ao assistente"
+          }
         ]
       },
       "kybernus": {
         "tagline": "Scaffolding open source para backends sérios.",
         "summary": "CLI em TypeScript que gera projetos em NestJS, Express, Spring Boot, FastAPI e Next.js com arquitetura limpa, hexagonal ou MVC — mais Docker, Terraform, CI/CD e documentação gerada por IA. Publicado no npm e adotado por mais de 100 desenvolvedores no primeiro mês.",
         "impact": [
-          { "value": "46", "label": "estrelas no GitHub" },
-          { "value": "5", "label": "stacks suportadas" }
+          {
+            "value": "46",
+            "label": "estrelas no GitHub"
+          },
+          {
+            "value": "5",
+            "label": "stacks suportadas"
+          }
         ]
-      },
-      "girix": {
-        "tagline": "Planejamento de força de vendas em campo.",
-        "summary": "Segmentação, dimensionamento e território com motor de otimização em Python/OR-Tools, PWA offline para o vendedor e projeção antes × depois em reais."
       },
       "dayride": {
         "tagline": "Gestão de transporte e caronas.",
@@ -91,10 +89,6 @@
       "ecommerce": {
         "tagline": "API de e-commerce em Spring Boot 3.",
         "summary": "Refresh token rotativo em cookie HttpOnly, RBAC, webhooks da Stripe e deploy com Docker na AWS."
-      },
-      "graviq": {
-        "tagline": "O back office de uma agência.",
-        "summary": "CRM, projetos, financeiro e geração de contratos em DOCX/PDF, com RLS em todas as tabelas no Supabase."
       },
       "veterano": {
         "tagline": "Mentoria entre veteranos e calouros.",
@@ -131,16 +125,6 @@
           "Pipelines ETL em Python/Pandas com troca atômica de tabelas: 800k+ registros por mês, zero downtime e 100% de acurácia.",
           "Dashboard estratégico adotado por diretores e gerentes de 4 grandes parceiros na operação B2B e B2C."
         ]
-      },
-      "nex": {
-        "role": "Fundador e Desenvolvedor Freelance",
-        "period": "Nov 2025 — Presente",
-        "location": "Remoto",
-        "summary": "Software sob medida para pequenas empresas: sites, automações e integrações com IA.",
-        "bullets": [
-          "Rebranding e landing page de alta conversão para a Fábrica das Cópias.",
-          "Automações com agentes de IA para vendas, prospecção e tarefas operacionais."
-        ]
       }
     }
   },
@@ -163,22 +147,26 @@
     "title_1": "Curioso por",
     "title_2": "construção.",
     "p1": "Sou engenheiro de software em Curitiba, formando em Engenharia de Software na PUCPR. Comecei em 2022 com JavaScript, passei por Python, Java e TypeScript, e hoje o que me interessa é o tipo de problema que não cabe num tutorial: concorrência, dinheiro e dados que não podem estar errados.",
-    "p2": "Minha relação com software vem do futebol: treino repetido, leitura de jogo e a teimosia de não largar um bug. Morei um ano em Utah, nos EUA, onde ganhei fluência em inglês e um campeonato regional — e aprendi a me adaptar rápido quando o plano muda.",
-    "p3": "Fora do trabalho, treino, leio sobre sistemas distribuídos e mantenho projetos open source. O objetivo é simples: construir software que resolva problema real e aguente o dia seguinte.",
     "photo_alt": "Vinicius Trevisan em Curitiba",
     "photo_caption": "Curitiba · 2026",
     "facts_title": "Em uma linha",
     "facts": [
-      { "label": "Base", "value": "Curitiba, Brasil" },
-      { "label": "Formação", "value": "Eng. de Software · PUCPR · 2028" },
-      { "label": "Idiomas", "value": "Português · Inglês fluente" },
-      { "label": "Foco", "value": "Backend, dados e produto" }
-    ],
-    "principles_title": "Como eu trabalho",
-    "principles": [
-      { "title": "Evidência antes de opinião", "desc": "Teste, métrica e log. Se não dá para provar, ainda não está pronto." },
-      { "title": "Simples até doer", "desc": "A melhor abstração é a que eu não precisei escrever." },
-      { "title": "Dono do problema", "desc": "Do schema ao deploy. Não empurro o bug para a próxima camada." }
+      {
+        "label": "Base",
+        "value": "Curitiba, Brasil"
+      },
+      {
+        "label": "Formação",
+        "value": "Eng. de Software · PUCPR · 2028"
+      },
+      {
+        "label": "Idiomas",
+        "value": "Português · Inglês fluente"
+      },
+      {
+        "label": "Foco",
+        "value": "Backend, dados e produto"
+      }
     ]
   },
   "Contact": {
