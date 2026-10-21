@@ -109,23 +109,33 @@
     "current": "Current",
     "items": {
       "wow": {
+        "role": "Software Engineer",
+        "period": "May 2026 — Present",
+        "location": "Curitiba, Brazil",
         "summary": "Owning the full lifecycle of a monorepo with 5 applications that run a franchise network: POS, customer area, management panel and APIs.",
         "bullets": [
-          "Delivered NFS-e invoicing end to end — RPS, per-CNPJ certificates, ledger and automatic provisioning — removing manual fiscal work.",
-          "Replaced Pipefy with an in-house workflow engine (pipes, forms, automations and permissions) while keeping operational parity with the legacy tool.",
-          "Built BigQuery BI dashboards used by the board: funnel, cash flow, ticket SLA, ratings and complaints.",
-          "Shipped an AI assistant with tool calling, RAG over Notion and a white-label console inside the product."
+          "Architected a provider-agnostic AI platform (NestJS + Angular) serving 80+ users and 140+ conversations/day: RAG over Notion/PDF/DOCX, tool calling with human confirmation, versioned agents and per-run auditing.",
+          "Replaced Pipefy with a native workflow engine: 18 automations migrated to TypeScript, latency from 1,628 ms to 249 ms and requests per webhook from 5 to 1; bidirectional reconciliation fixed 170+ diverging cards.",
+          "Delivered NFS-e invoicing end to end across 4 codebases and 14 locations, cutting issuance time by 90%+; A1 certificates live in memory only and one upload covers the entire CNPJ root.",
+          "Architected Google OAuth end to end (NestJS + FlutterFlow), now 80%+ of logins, with a 10-minute JWT bridge and an account-takeover guard.",
+          "Shipped a discount-campaign engine replacing Voucherify (US$650/month), an in-house contract-signing system with audit trail replacing ClickSign (R$179/month), and an AI-triaged complaints hub."
         ]
       },
       "vivo": {
+        "role": "Software Engineering Intern",
+        "period": "Sep 2025 — May 2026",
+        "location": "Curitiba, Brazil",
         "summary": "Automation and data for B2B and B2C operations across southern Brazil.",
         "bullets": [
-          "Python pipelines cut daily backlog processing from ~20 min to under 10 s, with zero manual errors.",
-          "Strategic Next.js + FastAPI dashboard with Rust parsers, adopted by directors and managers at 4 major partners.",
-          "Modular ETL handling 500k+ records per month with atomic table swaps on SQL Server: zero downtime and 100% reliability."
+          "Cut historical query latency by 99% for 1,200+ technicians with a Next.js + FastAPI dashboard, Rust parsers and multi-level RAM/Parquet caching.",
+          "Python/Pandas ETL pipelines with atomic table swaps: 800k+ records per month, zero downtime and 100% accuracy.",
+          "Strategic dashboard adopted by directors and managers at 4 major partners across B2B and B2C operations."
         ]
       },
       "nex": {
+        "role": "Founder & Freelance Developer",
+        "period": "Nov 2025 — Present",
+        "location": "Remote",
         "summary": "Bespoke software for small businesses: websites, automations and AI integrations.",
         "bullets": [
           "Rebrand and high-conversion landing page for Fábrica das Cópias.",

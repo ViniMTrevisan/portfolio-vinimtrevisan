@@ -54,9 +54,9 @@ export default function Experience() {
                     )}
                   </div>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-zinc-400">
-                    {job.period} · {job.location}
+                    {t(`items.${job.id}.period` as 'items.wow.period')} · {t(`items.${job.id}.location` as 'items.wow.location')}
                   </p>
-                  <p className="mt-4 font-mono text-xs text-zinc-400">{job.role}</p>
+                  <p className="mt-4 font-mono text-xs text-zinc-400">{t(`items.${job.id}.role` as 'items.wow.role')}</p>
                   <ul className="mt-4 flex flex-wrap gap-1.5">
                     {job.stack.map((tech) => (
                       <li

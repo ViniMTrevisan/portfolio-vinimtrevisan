@@ -109,23 +109,33 @@
     "current": "Atual",
     "items": {
       "wow": {
+        "role": "Engenheiro de Software",
+        "period": "Mai 2026 — Presente",
+        "location": "Curitiba, BR",
         "summary": "Dono do ciclo completo de um monorepo com 5 aplicações que sustentam a operação de franquias: PDV, área do cliente, painel de gestão e APIs.",
         "bullets": [
-          "Implementei a emissão de NFS-e de ponta a ponta — RPS, certificados por raiz de CNPJ, ledger e provisionamento automático — eliminando processo fiscal manual.",
-          "Substituí o Pipefy por um motor de workflows próprio (pipes, formulários, automações e permissões) mantendo paridade operacional com o legado.",
-          "Construí dashboards de BI sobre BigQuery adotados pela diretoria: funil, caixa, SLA de chamados, avaliações e reclamações.",
-          "Coloquei um assistente de IA com tool calling, RAG sobre Notion e console white-label dentro do produto."
+          "Arquitetei uma plataforma de IA provider-agnostic (NestJS + Angular) com 80+ usuários e 140+ conversas por dia: RAG sobre Notion/PDF/DOCX, tool calling com confirmação humana, agentes versionados e auditoria por execução.",
+          "Troquei o Pipefy por um motor de workflows nativo: 18 automações migradas para TypeScript, latência de 1.628 ms para 249 ms e 5 requisições por webhook para 1; a reconciliação bidirecional corrigiu 170+ cards divergentes.",
+          "Entreguei a emissão de NFS-e de ponta a ponta em 4 codebases e 14 unidades, cortando 90%+ do tempo de emissão; certificados A1 ficam só em memória e um upload cobre a raiz inteira do CNPJ.",
+          "Arquitetei o login com Google (NestJS + FlutterFlow), hoje 80%+ dos acessos, com bridge JWT de 10 minutos e guarda contra account takeover.",
+          "Coloquei no ar um motor de campanhas de desconto no lugar do Voucherify (US$650/mês), um assinador de contratos com trilha de auditoria no lugar do ClickSign (R$179/mês) e uma central de reclamações com triagem por IA."
         ]
       },
       "vivo": {
+        "role": "Estágio em Engenharia de Software",
+        "period": "Set 2025 — Mai 2026",
+        "location": "Curitiba, BR",
         "summary": "Automação e dados para operações B2B e B2C na região Sul.",
         "bullets": [
-          "Pipelines em Python cortaram o processamento diário de backlog de ~20 min para menos de 10 s, com zero erro manual.",
-          "Dashboard estratégico em Next.js + FastAPI com parsers em Rust, adotado por diretores e gerentes de 4 grandes parceiros.",
-          "ETL modular com 500k+ registros por mês e troca atômica de tabelas no SQL Server: zero downtime e 100% de confiabilidade."
+          "Reduzi em 99% a latência de consultas históricas para 1.200+ técnicos com um dashboard Next.js + FastAPI, parsers em Rust e cache multi-nível em RAM/Parquet.",
+          "Pipelines ETL em Python/Pandas com troca atômica de tabelas: 800k+ registros por mês, zero downtime e 100% de acurácia.",
+          "Dashboard estratégico adotado por diretores e gerentes de 4 grandes parceiros na operação B2B e B2C."
         ]
       },
       "nex": {
+        "role": "Fundador e Desenvolvedor Freelance",
+        "period": "Nov 2025 — Presente",
+        "location": "Remoto",
         "summary": "Software sob medida para pequenas empresas: sites, automações e integrações com IA.",
         "bullets": [
           "Rebranding e landing page de alta conversão para a Fábrica das Cópias.",

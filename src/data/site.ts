@@ -144,9 +144,6 @@ export const projects: Project[] = [
 export type ExperienceItem = {
   id: string;
   company: string;
-  role: string;
-  period: string;
-  location: string;
   stack: string[];
   current?: boolean;
 };
@@ -155,26 +152,17 @@ export const experiences: ExperienceItem[] = [
   {
     id: "wow",
     company: "WOW Lavacar",
-    role: "Software Engineer",
-    period: "2026 — Presente",
-    location: "Curitiba, BR",
     stack: ["NestJS", "Angular", "MongoDB", "BigQuery", "AWS", "NFS-e"],
     current: true,
   },
   {
     id: "vivo",
     company: "Vivo (Telefônica Brasil)",
-    role: "Software Engineering Intern",
-    period: "2025 — 2026",
-    location: "Curitiba, BR",
     stack: ["Python", "FastAPI", "Next.js", "SQL Server", "Rust"],
   },
   {
     id: "nex",
     company: "Nex Solutions",
-    role: "Founder & Freelance Developer",
-    period: "2025 — Presente",
-    location: "Remoto",
     stack: ["Next.js", "TypeScript", "Python", "Stripe", "AWS"],
   },
 ];
@@ -186,7 +174,7 @@ export type Stat = {
 
 export const stats: Stat[] = [
   { value: "99%", key: "stat_speed" },
-  { value: "500k+", key: "stat_volume" },
+  { value: "800k+", key: "stat_volume" },
   { value: "46", key: "stat_stars" },
   { value: "247", key: "stat_deliveries" },
 ];
