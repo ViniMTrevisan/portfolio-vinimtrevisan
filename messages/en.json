@@ -19,11 +19,7 @@
     "cta_work": "See the work",
     "cta_cv": "Download CV",
     "cta_contact": "Get in touch",
-    "scroll": "scroll to explore",
-    "stat_speed": "reduction in processing time",
-    "stat_volume": "records per month through a zero-downtime ETL",
-    "stat_stars": "GitHub stars on Kybernus, used by 100+ devs",
-    "stat_deliveries": "documented deliveries at WOW"
+    "scroll": "scroll to explore"
   },
   "Work": {
     "eyebrow": "02 — Selected work",

@@ -6,7 +6,7 @@ import { ArrowDown, ArrowUpRight, Download } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useActiveSection } from '@/contexts/ActiveSectionContext';
 import { useLenis } from './LenisProvider';
-import { socials, stats } from '@/data/site';
+import { socials } from '@/data/site';
 
 export default function Hero() {
   const { setActiveSection } = useActiveSection();
@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden px-5 pb-0 pt-24 md:px-10 md:pt-28"
+      className="relative flex min-h-[100svh] w-full flex-col justify-start overflow-hidden px-5 pb-12 pt-24 md:justify-center md:px-10 md:pb-16 md:pt-28"
     >
       {/* Editorial grid + glow */}
       <div className="pointer-events-none absolute inset-0 z-0 grid-lines opacity-60" />
@@ -126,27 +126,6 @@ export default function Hero() {
             </a>
           </div>
         </motion.div>
-      </div>
-
-      {/* Stats */}
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] pb-6 pt-8 md:pb-8">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-5 md:grid-cols-4 md:gap-8">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.key}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 + i * 0.08 }}
-            >
-              <div className="font-serif text-3xl font-bold leading-none text-foreground md:text-5xl">
-                {stat.value}
-              </div>
-              <p className="mt-2 max-w-[22ch] font-mono text-[10px] leading-relaxed text-zinc-400 md:text-[11px]">
-                {t(stat.key as 'stat_speed')}
-              </p>
-            </motion.div>
-          ))}
-        </div>
       </div>
 
     </section>

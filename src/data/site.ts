@@ -127,18 +127,6 @@ export const experiences: ExperienceItem[] = [
   },
 ];
 
-export type Stat = {
-  value: string;
-  key: string;
-};
-
-export const stats: Stat[] = [
-  { value: "99%", key: "stat_speed" },
-  { value: "800k+", key: "stat_volume" },
-  { value: "46", key: "stat_stars" },
-  { value: "247", key: "stat_deliveries" },
-];
-
 export type StackGroup = {
   id: string;
   items: string[];

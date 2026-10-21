@@ -19,11 +19,7 @@
     "cta_work": "Ver trabalhos",
     "cta_cv": "Baixar CV",
     "cta_contact": "Falar comigo",
-    "scroll": "role para explorar",
-    "stat_speed": "de redução no tempo de processamento",
-    "stat_volume": "registros por mês em ETL com zero downtime",
-    "stat_stars": "estrelas no Kybernus, usado por +100 devs",
-    "stat_deliveries": "entregas documentadas na WOW"
+    "scroll": "role para explorar"
   },
   "Work": {
     "eyebrow": "02 — Trabalhos selecionados",
